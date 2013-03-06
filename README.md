@@ -7,6 +7,4 @@
 
 Umlaut service to provide full text service responses, holdings, etc. from the Primo discovery solution.
 
-## Usage
-
-Needs to be added after Umlaut
+## DOCUMENTATION COMING SOON
