@@ -1,0 +1,29 @@
+# Configure what service plugins are used by Umlaut. This skeleton file
+# has been generated into your app to help you get started. 
+#
+# If a service has "disabled:true", it's currently turned off. 
+#
+# Some services require local api key or connection details as config.
+# Most services take other options for custom configuration too, not
+# all options are neccesarily listed as examples here, see source
+# or source-generated docs for more info.   
+default:
+  services:
+    Primo:
+      priority: 1
+      type: PrimoService
+      base_url: http://bobcat.library.nyu.edu
+      vid: NYU
+      institution: NYU
+      holding_search_institution: NYU
+      holding_search_text: Search for this title in Primo.
+      ez_proxy: !ruby/regexp '/https\:\/\/ezproxy\.library\.edu\/login\?url=/'
+
+    PrimoSource:
+      priority: 2
+      base_url: http://bobcat.library.nyu.edu
+      vid: NYU
+      institution: NYU
+      holding_search_institution: NYU
+      holding_search_text: Search for this title in Primo.
+      ez_proxy: !ruby/regexp '/https\:\/\/ezproxy\.library\.edu\/login\?url=/'

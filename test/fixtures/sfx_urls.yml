@@ -1,0 +1,4 @@
+gateway:
+  url: gateway.ovid.com
+proquest:
+  url: proquest.umi.com

@@ -1,0 +1,96 @@
+travels_with_my_aunt_1:
+  referent: travels_with_my_aunt
+  key_name: "format"
+  value: "book"
+  normalized_value: "book"
+  metadata: true
+  private_data: false
+
+travels_with_my_aunt_2:
+  referent: travels_with_my_aunt
+  key_name: "genre"
+  value: "book"
+  normalized_value: "book"
+  metadata: true
+  private_data: false
+
+travels_with_my_aunt_3:
+  referent: travels_with_my_aunt
+  key_name: "title"
+  value: "Travels with my aunt"
+  normalized_value: "Travels with my aunt"
+  metadata: true
+  private_data: false
+
+travels_with_my_aunt_4:
+  referent: travels_with_my_aunt
+  key_name: "btitle"
+  value: "Travels with my aunt"
+  normalized_value: "Travels with my aunt"
+  metadata: true
+  private_data: false
+
+travels_with_my_aunt_5:
+  referent: travels_with_my_aunt
+  key_name: "isbn"
+  value: "0143039008"
+  normalized_value: "0143039008"
+  metadata: true
+  private_data: false
+
+australian_journal_of_international_affairs_1:
+  referent: australian_journal_of_international_affairs
+  key_name: "format"
+  value: "journal"
+  normalized_value: "journal"
+  metadata: false
+  private_data: false
+
+australian_journal_of_international_affairs_2:
+  referent: australian_journal_of_international_affairs
+  key_name: "genre"
+  value: "journal"
+  normalized_value: "journal"
+  metadata: true
+  private_data: false
+
+australian_journal_of_international_affairs_3:
+  referent: australian_journal_of_international_affairs
+  key_name: "issn"
+  value: "1035-7718"
+  normalized_value: "1035-7718"
+  metadata: true
+  private_data: false
+
+the_musical_quarterly_1:
+  referent: the_musical_quarterly
+  key_name: "format"
+  value: "journal"
+  normalized_value: "journal"
+  metadata: true
+  private_data: false
+
+the_musical_quarterly_2:
+  referent: the_musical_quarterly
+  key_name: "genre"
+  value: "journal"
+  normalized_value: "journal"
+  metadata: true
+  private_data: false
+
+the_musical_quarterly_3:
+  referent: the_musical_quarterly
+  key_name: "title"
+  value: "The Musical quarterly."
+  normalized_value: "The Musical quarterly."
+  metadata: true
+  private_data: false
+
+the_musical_quarterly_4:
+  referent: the_musical_quarterly
+  key_name: "issn"
+  value: "0027-4631"
+  normalized_value: "0027-4631"
+  metadata: true
+  private_data: false
+

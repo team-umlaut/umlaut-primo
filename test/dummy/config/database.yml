@@ -1,0 +1,61 @@
+# SQLite version 3.x
+#   gem install sqlite3
+#
+#   Ensure the SQLite 3 gem is defined in your Gemfile
+#   gem 'sqlite3'
+#
+# UMLAUT: mysql db with mysql2 adapter strongly recommended for Umlaut, in both 
+# production and development. sqlite3 has unclear semantics under threaded 
+# concurrency which umlaut uses, and in many cases simply does not work. 
+#
+# A higher pool size than ordinary is recommended because of umlaut's
+# use of concurrency. Perhaps as large as the number of services
+# you have configured to run in the same wave, plus another few. 
+#
+# development:
+#   adapter: mysql2
+#   host: 
+#   username:
+#   password:
+#   database:
+#   pool: 15 
+
+# Warning: The database defined as "test" will be erased and
+# re-generated from your development database when you run "rake".
+# Do not set this db to the same as development or production.
+test:
+  adapter: mysql2
+  database: umlaut3_test
+  pool: 5
+  username: root
+  encoding: utf8
+          
+#
+# UMLAUT: for the 'search' functions (A-Z title lookup) to work, you need
+# a direct database connection to the SFX database, under 'sfx_db' key. 
+# You should manually set up a new read-only MySQL account in the SFX db
+# for this purpose, rather than use one of the full-access existing SFX
+# mysql accounts. 
+#
+#sfx_db:
+#  adapter: mysql2
+#  host: my_sfx_host.u.edu
+#  port: 3310 # 3310 is defualt SFX embedded mysql port
+#  database: sfxlcl41 # or other sfx instance db
+#  username:
+#  password:
+#  pool: 5
+#  encoding: utf8
+# 
+# UMLAUT: for Sfx4Solr functionality.  If you're not using SFX 4 indexed in 
+# Solr via Sunspot, feel free to ignore this.
+#sfx4_global:
+#  adapter: mysql2
+#  host: my_sfx_host.u.edu
+#  port: 3310 # 3310 is defualt SFX embedded mysql port
+#  database: sfxglb41 # or other sfx global db
+#  username:
+#  password:
+#  pool: 5
+#  encoding: utf8
+# 

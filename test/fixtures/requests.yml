@@ -1,0 +1,20 @@
+travels_with_my_aunt_by_id:
+  referrer_id: info:sid/primo.exlibrisgroup.com:primo-aleph000062856
+  referent: travels_with_my_aunt
+
+travels_with_my_aunt_by_isbn:
+  referent: travels_with_my_aunt
+
+australian_journal_of_international_affairs_by_id:
+  referrer_id: info:sid/primo.exlibrisgroup.com:primo-dedupmrg17737330
+  referent: australian_journal_of_international_affairs
+
+australian_journal_of_international_affairs_by_issn:
+  referent: australian_journal_of_international_affairs
+
+the_musical_quarterly_by_id:
+  referrer_id: info:sid/primo.exlibrisgroup.com:primo-aleph002895625
+  referent: the_musical_quarterly
+
+the_musical_quarterly_by_issn:
+  referent: the_musical_quarterly

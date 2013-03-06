@@ -1,0 +1,263 @@
+---
+http_interactions:
+- request:
+    method: post
+    uri: http://primo.library.edu/PrimoWebServices/services/searcher
+    body:
+      encoding: US-ASCII
+      string: <?xml version="1.0" encoding="UTF-8"?><env:Envelope xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:wsdl="http://primo.library.edu/PrimoWebServices/services/searcher"
+        xmlns:env="http://schemas.xmlsoap.org/soap/envelope/"><env:Body><searchBrief><request><![CDATA[<searchRequest
+        xmlns="http://www.exlibris.com/primo/xsd/wsRequest" xmlns:uic="http://www.exlibris.com/primo/xsd/primoview/uicomponents"><PrimoSearchRequest
+        xmlns="http://www.exlibris.com/primo/xsd/search/request"><QueryTerms><BoolOpeator>AND</BoolOpeator><QueryTerm><IndexField>isbn</IndexField><PrecisionOperator>exact</PrecisionOperator><Value>0027-4631</Value></QueryTerm></QueryTerms><StartIndex>1</StartIndex><BulkSize>5</BulkSize><DidUMeanEnabled>false</DidUMeanEnabled></PrimoSearchRequest><institution>NYU</institution></searchRequest>]]></request></searchBrief></env:Body></env:Envelope>
+    headers:
+      Soapaction:
+      - ! '"searchBrief"'
+      Content-Type:
+      - text/xml;charset=UTF-8
+      Content-Length:
+      - '920'
+      Accept:
+      - ! '*/*'
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      X-Powered-By:
+      - ! 'Servlet 2.4; Tomcat-5.0.28/JBoss-4.0.1 (build: CVSTag=JBoss_4_0_1 date=200412230944)'
+      Content-Type:
+      - text/xml;charset=utf-8
+      Transfer-Encoding:
+      - chunked
+      Date:
+      - Wed, 06 Mar 2013 20:27:15 GMT
+      Server:
+      - Apache-Coyote/1.1
+    body:
+      encoding: US-ASCII
+      string: ! "<?xml version=\"1.0\" encoding=\"UTF-8\"?><soapenv:Envelope xmlns:soapenv=\"http://schemas.xmlsoap.org/soap/envelope/\"
+        xmlns:xsd=\"http://www.w3.org/2001/XMLSchema\" xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\"><soapenv:Body><searchBriefResponse
+        soapenv:encodingStyle=\"http://schemas.xmlsoap.org/soap/encoding/\"><searchBriefReturn
+        xsi:type=\"soapenc:string\" xmlns:soapenc=\"http://schemas.xmlsoap.org/soap/encoding/\">&lt;sear:SEGMENTS
+        xmlns=&quot;http://www.exlibrisgroup.com/xsd/primo/primo_nm_bib&quot; xmlns:sear=&quot;http://www.exlibrisgroup.com/xsd/jaguar/search&quot;&gt;\n
+        \ &lt;sear:JAGROOT&gt;\n    &lt;sear:RESULT&gt;\n      &lt;sear:QUERYTRANSFORMS/&gt;\n
+        \     &lt;sear:FACETLIST ACCURATE_COUNTERS=&quot;true&quot;&gt;\n        &lt;sear:FACET
+        COUNT=&quot;1&quot; NAME=&quot;lcc&quot;&gt;\n          &lt;sear:FACET_VALUES
+        VALUE=&quot;1&quot; KEY=&quot;M - Music.&quot;/&gt;\n        &lt;/sear:FACET&gt;\n
+        \       &lt;sear:FACET COUNT=&quot;1&quot; NAME=&quot;lang&quot;&gt;\n          &lt;sear:FACET_VALUES
+        VALUE=&quot;1&quot; KEY=&quot;eng&quot;/&gt;\n        &lt;/sear:FACET&gt;\n
+        \       &lt;sear:FACET COUNT=&quot;1&quot; NAME=&quot;rtype&quot;&gt;\n          &lt;sear:FACET_VALUES
+        VALUE=&quot;1&quot; KEY=&quot;journals&quot;/&gt;\n        &lt;/sear:FACET&gt;\n
+        \       &lt;sear:FACET COUNT=&quot;1&quot; NAME=&quot;topic&quot;&gt;\n          &lt;sear:FACET_VALUES
+        VALUE=&quot;1&quot; KEY=&quot;Music&quot;/&gt;\n        &lt;/sear:FACET&gt;\n
+        \       &lt;sear:FACET COUNT=&quot;2&quot; NAME=&quot;tlevel&quot;&gt;\n          &lt;sear:FACET_VALUES
+        VALUE=&quot;1&quot; KEY=&quot;online_resources&quot;/&gt;\n          &lt;sear:FACET_VALUES
+        VALUE=&quot;1&quot; KEY=&quot;available&quot;/&gt;\n        &lt;/sear:FACET&gt;\n
+        \       &lt;sear:FACET COUNT=&quot;1&quot; NAME=&quot;pfilter&quot;&gt;\n
+        \         &lt;sear:FACET_VALUES VALUE=&quot;1&quot; KEY=&quot;journals&quot;/&gt;\n
+        \       &lt;/sear:FACET&gt;\n        &lt;sear:FACET COUNT=&quot;1&quot; NAME=&quot;creationdate&quot;&gt;\n
+        \         &lt;sear:FACET_VALUES VALUE=&quot;1&quot; KEY=&quot;1920&quot;/&gt;\n
+        \       &lt;/sear:FACET&gt;\n        &lt;sear:FACET COUNT=&quot;4&quot; NAME=&quot;domain&quot;&gt;\n
+        \         &lt;sear:FACET_VALUES VALUE=&quot;1&quot; KEY=&quot;NYHS&quot;/&gt;\n
+        \         &lt;sear:FACET_VALUES VALUE=&quot;1&quot; KEY=&quot;CU&quot;/&gt;\n
+        \         &lt;sear:FACET_VALUES VALUE=&quot;1&quot; KEY=&quot;BOBST&quot;/&gt;\n
+        \         &lt;sear:FACET_VALUES VALUE=&quot;1&quot; KEY=&quot;NSSC&quot;/&gt;\n
+        \       &lt;/sear:FACET&gt;\n        &lt;sear:FACET COUNT=&quot;2&quot; NAME=&quot;genre&quot;&gt;\n
+        \         &lt;sear:FACET_VALUES VALUE=&quot;1&quot; KEY=&quot;Periodicals&quot;/&gt;\n
+        \         &lt;sear:FACET_VALUES VALUE=&quot;1&quot; KEY=&quot;Electronic journals&quot;/&gt;\n
+        \       &lt;/sear:FACET&gt;\n        &lt;sear:FACET COUNT=&quot;9&quot; NAME=&quot;library&quot;&gt;\n
+        \         &lt;sear:FACET_VALUES VALUE=&quot;1&quot; KEY=&quot;ISAW&quot;/&gt;\n
+        \         &lt;sear:FACET_VALUES VALUE=&quot;1&quot; KEY=&quot;CPER&quot;/&gt;\n
+        \         &lt;sear:FACET_VALUES VALUE=&quot;1&quot; KEY=&quot;BOBST&quot;/&gt;\n
+        \         &lt;sear:FACET_VALUES VALUE=&quot;1&quot; KEY=&quot;NYHSM&quot;/&gt;\n
+        \         &lt;sear:FACET_VALUES VALUE=&quot;1&quot; KEY=&quot;REI&quot;/&gt;\n
+        \         &lt;sear:FACET_VALUES VALUE=&quot;1&quot; KEY=&quot;IFAC&quot;/&gt;\n
+        \         &lt;sear:FACET_VALUES VALUE=&quot;1&quot; KEY=&quot;NSSC&quot;/&gt;\n
+        \         &lt;sear:FACET_VALUES VALUE=&quot;1&quot; KEY=&quot;IFA&quot;/&gt;\n
+        \         &lt;sear:FACET_VALUES VALUE=&quot;1&quot; KEY=&quot;COUR&quot;/&gt;\n
+        \       &lt;/sear:FACET&gt;\n        &lt;sear:FACET COUNT=&quot;3&quot; NAME=&quot;local1&quot;&gt;\n
+        \         &lt;sear:FACET_VALUES VALUE=&quot;1&quot; KEY=&quot;Main Collection&quot;/&gt;\n
+        \         &lt;sear:FACET_VALUES VALUE=&quot;1&quot; KEY=&quot;Periodicals&quot;/&gt;\n
+        \         &lt;sear:FACET_VALUES VALUE=&quot;1&quot; KEY=&quot;Internet Resources&quot;/&gt;\n
+        \       &lt;/sear:FACET&gt;\n      &lt;/sear:FACETLIST&gt;\n      &lt;sear:DOCSET
+        IS_LOCAL=&quot;true&quot; TOTAL_TIME=&quot;11&quot; LASTHIT=&quot;1&quot;
+        FIRSTHIT=&quot;1&quot; TOTALHITS=&quot;1&quot; HIT_TIME=&quot;3&quot;&gt;\n
+        \       &lt;sear:DOC SEARCH_ENGINE_TYPE=&quot;Local Search Engine&quot; SEARCH_ENGINE=&quot;Local
+        Search Engine&quot; NO=&quot;1&quot; RANK=&quot;1.0&quot; ID=&quot;3726595&quot;&gt;\n
+        \         &lt;PrimoNMBib&gt;\n            &lt;record&gt;\n              &lt;control&gt;\n
+        \               &lt;sourcerecordid&gt;002895625&lt;/sourcerecordid&gt;\n                &lt;sourceid&gt;aleph&lt;/sourceid&gt;\n
+        \               &lt;recordid&gt;aleph002895625&lt;/recordid&gt;\n                &lt;originalsourceid&gt;LIB01&lt;/originalsourceid&gt;\n
+        \               &lt;ilsapiid&gt;LIB01002895625&lt;/ilsapiid&gt;\n                &lt;sourceformat&gt;MARC21&lt;/sourceformat&gt;\n
+        \               &lt;sourcesystem&gt;Aleph&lt;/sourcesystem&gt;\n              &lt;/control&gt;\n
+        \             &lt;display&gt;\n                &lt;type&gt;journal&lt;/type&gt;\n
+        \               &lt;title&gt;The Musical quarterly.&lt;/title&gt;\n                &lt;publisher&gt;New
+        York etc. G. Schirmer.&lt;/publisher&gt;\n                &lt;creationdate&gt;1915&lt;/creationdate&gt;\n
+        \               &lt;format&gt;v. ill. (incl. music) plates (incl. music) ports.
+        25 cm.&lt;/format&gt;\n                &lt;identifier&gt;$$Cissn$$V0027-4631&lt;/identifier&gt;\n
+        \               &lt;subject&gt;Music -- Periodicals; Music; Electronic journals&lt;/subject&gt;\n
+        \               &lt;language&gt;eng&lt;/language&gt;\n                &lt;relation&gt;$$Cindexes$$VVols.
+        1-10, 1915-24, with v. 10; Vols. 1-45, 1915-59. 1 v.; Vols. 46-48, 1960-62.
+        1 v.&lt;/relation&gt;\n                &lt;source&gt;aleph&lt;/source&gt;\n
+        \               &lt;availlibrary&gt;$$INYU$$LBOBST$$1Main Collection$$2(ML1
+        .M819 )$$Scheck_holdings$$5Y$$XNYU50$$YBOBST$$ZMAIN&lt;/availlibrary&gt;\n
+        \               &lt;availlibrary&gt;$$INS$$LNSSC$$1Periodicals$$2(ML1 M819
+        Non-circulating )$$Sunavailable$$39$$49$$5Y$$61$$XNYU50$$YTNSSC$$ZPERIO&lt;/availlibrary&gt;\n
+        \               &lt;availlibrary&gt;$$INYU$$LBWEB$$1Internet Resources$$2(ML1
+        .M819 Electronic access )$$Scheck_holdings$$XNYU50$$YBWEB$$ZBNYUI&lt;/availlibrary&gt;\n
+        \               &lt;availlibrary&gt;$$ICU$$LCU$$1Periodicals$$2(Non-circulating
+        )$$Scheck_holdings$$XNYU50$$YCU$$ZPERIO&lt;/availlibrary&gt;\n                &lt;availlibrary&gt;$$INYHS$$LNYHS$$1Periodicals$$2(ML1
+        .M725 Non-circulating )$$Scheck_holdings$$XNYU50$$YNYHS$$ZPERIO&lt;/availlibrary&gt;\n
+        \               &lt;lds02&gt;aleph002895625&lt;/lds02&gt;\n                &lt;lds01&gt;NYU&lt;/lds01&gt;\n
+        \               &lt;lds01&gt;NS&lt;/lds01&gt;\n                &lt;lds01&gt;CU&lt;/lds01&gt;\n
+        \               &lt;lds01&gt;NYHS&lt;/lds01&gt;\n                &lt;lds01&gt;NYUAD&lt;/lds01&gt;\n
+        \               &lt;availinstitution&gt;$$INS$$Sunavailable&lt;/availinstitution&gt;\n
+        \               &lt;availinstitution&gt;$$ICU$$Scheck_holdings&lt;/availinstitution&gt;\n
+        \               &lt;availinstitution&gt;$$INYU$$Scheck_holdings&lt;/availinstitution&gt;\n
+        \               &lt;availinstitution&gt;$$INYHS$$Scheck_holdings&lt;/availinstitution&gt;\n
+        \               &lt;availpnx&gt;available&lt;/availpnx&gt;\n              &lt;/display&gt;\n
+        \             &lt;links&gt;\n                &lt;openurl&gt;$$Topenurl_journal&lt;/openurl&gt;\n
+        \               &lt;backlink&gt;$$Taleph_backlink$$DMore bibliographic information&lt;/backlink&gt;\n
+        \               &lt;linktorsrc&gt;$$Uhttps://ezproxy.library.edu/login?url=http://mq.oxfordjournals.org/$$DOnline
+        Version$$INYU&lt;/linktorsrc&gt;\n                &lt;linktorsrc&gt;$$Uhttps://ezproxy.library.edu/login?url=http://mq.oxfordjournals.org/$$DOnline
+        Resource$$INYUAD&lt;/linktorsrc&gt;\n                &lt;openurlfulltext&gt;$$Topenurlfull_journal&lt;/openurlfulltext&gt;\n
+        \               &lt;linktoholdings&gt;$$Taleph_holdings&lt;/linktoholdings&gt;\n
+        \               &lt;linktoreview&gt;$$TpersistentUrl$$DCopy item link&lt;/linktoreview&gt;\n
+        \               &lt;lln02&gt;$$Taeon_nyhs$$DClick here to request N-YHS materials.$$1Periodicals$$2ML1
+        .M725 Non-circulating&lt;/lln02&gt;\n              &lt;/links&gt;\n              &lt;search&gt;\n
+        \               &lt;creatorcontrib&gt;Mellon Project.&lt;/creatorcontrib&gt;\n
+        \               &lt;creatorcontrib&gt;JSTOR (Organization)&lt;/creatorcontrib&gt;\n
+        \               &lt;title&gt;The Musical quarterly.&lt;/title&gt;\n                &lt;subject&gt;Music
+        \ Periodicals&lt;/subject&gt;\n                &lt;subject&gt;Music&lt;/subject&gt;\n
+        \               &lt;subject&gt;Electronic journals&lt;/subject&gt;\n                &lt;subject&gt;Music
+        Yearbooks&lt;/subject&gt;\n                &lt;subject&gt;Music Almanacs,
+        yearbooks, etc.&lt;/subject&gt;\n                &lt;subject&gt;Serious music&lt;/subject&gt;\n
+        \               &lt;subject&gt;Musical compositions&lt;/subject&gt;\n                &lt;subject&gt;Art
+        music, Western&lt;/subject&gt;\n                &lt;subject&gt;Classical music&lt;/subject&gt;\n
+        \               &lt;subject&gt;Musical works&lt;/subject&gt;\n                &lt;subject&gt;Art
+        music&lt;/subject&gt;\n                &lt;subject&gt;Western music (Western
+        countries)&lt;/subject&gt;\n                &lt;subject&gt;Western art music&lt;/subject&gt;\n
+        \               &lt;general&gt;G. Schirmer.&lt;/general&gt;\n                &lt;sourceid&gt;aleph&lt;/sourceid&gt;\n
+        \               &lt;recordid&gt;aleph002895625&lt;/recordid&gt;\n                &lt;isbn&gt;0027-4631&lt;/isbn&gt;\n
+        \               &lt;rsrctype&gt;journal&lt;/rsrctype&gt;\n                &lt;creationdate&gt;1915&lt;/creationdate&gt;\n
+        \               &lt;creationdate&gt;9999&lt;/creationdate&gt;\n                &lt;addtitle&gt;The
+        Musical quarterly (Online)&lt;/addtitle&gt;\n                &lt;searchscope&gt;BOBST&lt;/searchscope&gt;\n
+        \               &lt;searchscope&gt;BOBST Main Collection&lt;/searchscope&gt;\n
+        \               &lt;searchscope&gt;TNSSC&lt;/searchscope&gt;\n                &lt;searchscope&gt;TNSSC
+        Periodicals&lt;/searchscope&gt;\n                &lt;searchscope&gt;BWEB&lt;/searchscope&gt;\n
+        \               &lt;searchscope&gt;BWEB Internet Resources&lt;/searchscope&gt;\n
+        \               &lt;searchscope&gt;CU&lt;/searchscope&gt;\n                &lt;searchscope&gt;CU
+        Periodicals&lt;/searchscope&gt;\n                &lt;searchscope&gt;NYHS&lt;/searchscope&gt;\n
+        \               &lt;searchscope&gt;NYHS Periodicals&lt;/searchscope&gt;\n
+        \               &lt;searchscope&gt;aleph&lt;/searchscope&gt;\n                &lt;searchscope&gt;NYU&lt;/searchscope&gt;\n
+        \               &lt;searchscope&gt;NS&lt;/searchscope&gt;\n                &lt;searchscope&gt;NYUAD&lt;/searchscope&gt;\n
+        \               &lt;searchscope&gt;NSSC&lt;/searchscope&gt;\n                &lt;searchscope&gt;CPER&lt;/searchscope&gt;\n
+        \               &lt;searchscope&gt;NYHSM&lt;/searchscope&gt;\n                &lt;searchscope&gt;IFA&lt;/searchscope&gt;\n
+        \               &lt;searchscope&gt;IFAC&lt;/searchscope&gt;\n                &lt;searchscope&gt;ISAW&lt;/searchscope&gt;\n
+        \               &lt;searchscope&gt;COUR&lt;/searchscope&gt;\n                &lt;searchscope&gt;REI&lt;/searchscope&gt;\n
+        \               &lt;scope&gt;BOBST&lt;/scope&gt;\n                &lt;scope&gt;BOBST
+        Main Collection&lt;/scope&gt;\n                &lt;scope&gt;TNSSC&lt;/scope&gt;\n
+        \               &lt;scope&gt;TNSSC Periodicals&lt;/scope&gt;\n                &lt;scope&gt;BWEB&lt;/scope&gt;\n
+        \               &lt;scope&gt;BWEB Internet Resources&lt;/scope&gt;\n                &lt;scope&gt;CU&lt;/scope&gt;\n
+        \               &lt;scope&gt;CU Periodicals&lt;/scope&gt;\n                &lt;scope&gt;NYHS&lt;/scope&gt;\n
+        \               &lt;scope&gt;NYHS Periodicals&lt;/scope&gt;\n                &lt;scope&gt;aleph&lt;/scope&gt;\n
+        \               &lt;scope&gt;NYU&lt;/scope&gt;\n                &lt;scope&gt;NS&lt;/scope&gt;\n
+        \               &lt;scope&gt;NYUAD&lt;/scope&gt;\n                &lt;scope&gt;NSSC&lt;/scope&gt;\n
+        \               &lt;scope&gt;CPER&lt;/scope&gt;\n                &lt;scope&gt;NYHSM&lt;/scope&gt;\n
+        \               &lt;scope&gt;IFA&lt;/scope&gt;\n                &lt;scope&gt;IFAC&lt;/scope&gt;\n
+        \               &lt;scope&gt;ISAW&lt;/scope&gt;\n                &lt;scope&gt;COUR&lt;/scope&gt;\n
+        \               &lt;scope&gt;REI&lt;/scope&gt;\n                &lt;alttitle&gt;Music.
+        q.&lt;/alttitle&gt;\n                &lt;lsr01&gt;ML1 .M819&lt;/lsr01&gt;\n
+        \               &lt;lsr01&gt;ML1.M819&lt;/lsr01&gt;\n                &lt;lsr01&gt;ML1
+        M819&lt;/lsr01&gt;\n                &lt;lsr01&gt;ML1 .M725&lt;/lsr01&gt;\n
+        \               &lt;lsr01&gt;ML1.M725&lt;/lsr01&gt;\n                &lt;lsr02&gt;G.
+        Schirmer.&lt;/lsr02&gt;\n              &lt;/search&gt;\n              &lt;sort&gt;\n
+        \               &lt;title&gt;Musical quarterly.&lt;/title&gt;\n                &lt;creationdate&gt;1915&lt;/creationdate&gt;\n
+        \               &lt;lso01&gt;1915&lt;/lso01&gt;\n              &lt;/sort&gt;\n
+        \             &lt;facets&gt;\n                &lt;language&gt;eng&lt;/language&gt;\n
+        \               &lt;creationdate&gt;1915&lt;/creationdate&gt;\n                &lt;topic&gt;Music&#x2013;Periodicals&lt;/topic&gt;\n
+        \               &lt;topic&gt;Music&lt;/topic&gt;\n                &lt;collection&gt;BOBST&lt;/collection&gt;\n
+        \               &lt;collection&gt;NSSC&lt;/collection&gt;\n                &lt;collection&gt;CU&lt;/collection&gt;\n
+        \               &lt;collection&gt;NYHS&lt;/collection&gt;\n                &lt;toplevel&gt;available&lt;/toplevel&gt;\n
+        \               &lt;toplevel&gt;online_resources&lt;/toplevel&gt;\n                &lt;prefilter&gt;journals&lt;/prefilter&gt;\n
+        \               &lt;rsrctype&gt;journals&lt;/rsrctype&gt;\n                &lt;genre&gt;Periodicals&lt;/genre&gt;\n
+        \               &lt;genre&gt;Electronic journals&lt;/genre&gt;\n                &lt;library&gt;BOBST&lt;/library&gt;\n
+        \               &lt;library&gt;NSSC&lt;/library&gt;\n                &lt;library&gt;CPER&lt;/library&gt;\n
+        \               &lt;library&gt;NYHSM&lt;/library&gt;\n                &lt;library&gt;IFA&lt;/library&gt;\n
+        \               &lt;library&gt;IFAC&lt;/library&gt;\n                &lt;library&gt;ISAW&lt;/library&gt;\n
+        \               &lt;library&gt;COUR&lt;/library&gt;\n                &lt;library&gt;REI&lt;/library&gt;\n
+        \               &lt;lfc01&gt;Main Collection&lt;/lfc01&gt;\n                &lt;lfc01&gt;Periodicals&lt;/lfc01&gt;\n
+        \               &lt;lfc01&gt;Internet Resources&lt;/lfc01&gt;\n                &lt;classificationlcc&gt;M
+        - Music.&#x2013;Literature on music&lt;/classificationlcc&gt;\n                &lt;frbrgroupid&gt;101476691&lt;/frbrgroupid&gt;\n
+        \               &lt;frbrtype&gt;6&lt;/frbrtype&gt;\n              &lt;/facets&gt;\n
+        \             &lt;dedup&gt;\n                &lt;t&gt;99&lt;/t&gt;\n                &lt;c1&gt;16024484&lt;/c1&gt;\n
+        \               &lt;c2&gt;0027-4631&lt;/c2&gt;\n                &lt;c3&gt;musicalquarterly&lt;/c3&gt;\n
+        \               &lt;c4&gt;new&lt;/c4&gt;\n                &lt;f1&gt;16024484&lt;/f1&gt;\n
+        \               &lt;f3&gt;00274631&lt;/f3&gt;\n                &lt;f6&gt;1915&lt;/f6&gt;\n
+        \               &lt;f7&gt;musical quarterly&lt;/f7&gt;\n                &lt;f8&gt;musical
+        quarterly&lt;/f8&gt;\n                &lt;f9&gt;nyu&lt;/f9&gt;\n                &lt;f10&gt;new&lt;/f10&gt;\n
+        \             &lt;/dedup&gt;\n              &lt;frbr&gt;\n                &lt;t&gt;1&lt;/t&gt;\n
+        \               &lt;k3&gt;$$Kmusical quarterly$$AT&lt;/k3&gt;\n              &lt;/frbr&gt;\n
+        \             &lt;delivery&gt;\n                &lt;institution&gt;NYU&lt;/institution&gt;\n
+        \               &lt;institution&gt;NS&lt;/institution&gt;\n                &lt;institution&gt;CU&lt;/institution&gt;\n
+        \               &lt;institution&gt;NYHS&lt;/institution&gt;\n                &lt;institution&gt;NYUAD&lt;/institution&gt;\n
+        \               &lt;delcategory&gt;Online Resource&lt;/delcategory&gt;\n              &lt;/delivery&gt;\n
+        \             &lt;enrichment&gt;\n                &lt;classificationlcc&gt;ML1&lt;/classificationlcc&gt;\n
+        \             &lt;/enrichment&gt;\n              &lt;ranking&gt;\n                &lt;booster1&gt;1&lt;/booster1&gt;\n
+        \               &lt;booster2&gt;1&lt;/booster2&gt;\n              &lt;/ranking&gt;\n
+        \             &lt;addata&gt;\n                &lt;jtitle&gt;The Musical quarterly.&lt;/jtitle&gt;\n
+        \               &lt;stitle&gt;Music. q.&lt;/stitle&gt;\n                &lt;date&gt;1915&lt;/date&gt;\n
+        \               &lt;risdate&gt;1915&lt;/risdate&gt;\n                &lt;issn&gt;0027-4631&lt;/issn&gt;\n
+        \               &lt;format&gt;journal&lt;/format&gt;\n                &lt;genre&gt;journal&lt;/genre&gt;\n
+        \               &lt;ristype&gt;JOUR&lt;/ristype&gt;\n                &lt;cop&gt;New
+        York [etc.&lt;/cop&gt;\n                &lt;pub&gt;G. Schirmer&lt;/pub&gt;\n
+        \               &lt;lccn&gt;16024484&lt;/lccn&gt;\n                &lt;lad01&gt;BOBSTBWEBCUTNSSCNYHS&lt;/lad01&gt;\n
+        \               &lt;lad01&gt;Online Resource&lt;/lad01&gt;\n              &lt;/addata&gt;\n
+        \           &lt;/record&gt;\n          &lt;/PrimoNMBib&gt;\n          &lt;sear:GETIT
+        GetIt2=&quot;https://getit.library.nyu.edu/resolve?&amp;amp;ctx_ver=Z39.88-2004&amp;amp;ctx_enc=info:ofi/enc:UTF-8&amp;amp;ctx_tim=2013-03-06T15%3A27%3A15IST&amp;amp;url_ver=Z39.88-2004&amp;amp;url_ctx_fmt=infofi/fmt:kev:mtx:ctx&amp;amp;rfr_id=info:sid/primo.exlibrisgroup.com:primo-aleph002895625&amp;amp;rft_val_fmt=info:ofi/fmt:kev:mtx:journal&amp;amp;rft.genre=journal&amp;amp;rft.jtitle=The%20Musical%20quarterly.&amp;amp;rft.btitle=&amp;amp;rft.aulast=&amp;amp;rft.aufirst=&amp;amp;rft.auinit=&amp;amp;rft.auinit1=&amp;amp;rft.auinitm=&amp;amp;rft.ausuffix=&amp;amp;rft.au=&amp;amp;rft.aucorp=&amp;amp;rft.volume=&amp;amp;rft.issue=&amp;amp;rft.part=&amp;amp;rft.quarter=&amp;amp;rft.ssn=&amp;amp;rft.spage=&amp;amp;rft.epage=&amp;amp;rft.pages=&amp;amp;rft.artnum=&amp;amp;rft.pub=G.%20Schirmer&amp;amp;rft.place=New%20York%20[etc.&amp;amp;rft.issn=0027-4631&amp;amp;rft.eissn=&amp;amp;rft.isbn=&amp;amp;rft.sici=&amp;amp;rft.coden=&amp;amp;rft_id=info:doi/&amp;amp;rft.object_id=&amp;amp;rft.primo=aleph002895625&amp;amp;rft.eisbn=&amp;amp;rft_dat=&amp;lt;aleph&gt;002895625&amp;lt;/aleph&gt;&amp;amp;rft_id=info:oai/&quot;
+        GetIt1=&quot;https://ezproxy.library.edu/login?url=http://mq.oxfordjournals.org/&quot;
+        deliveryCategory=&quot;Online Resource&quot;/&gt;\n          &lt;sear:GETIT
+        GetIt2=&quot;&quot; GetIt1=&quot;http://aleph.library.nyu.edu/F?func=item-global&amp;amp;doc_library=LIB01&amp;amp;local_base=PRIMOCOMMON&amp;amp;doc_number=002895625&quot;
+        deliveryCategory=&quot;Physical Item&quot;/&gt;\n          &lt;sear:LIBRARIES&gt;\n
+        \           &lt;sear:LIBRARY&gt;\n              &lt;sear:institution&gt;NS&lt;/sear:institution&gt;\n
+        \             &lt;sear:library&gt;NSSC&lt;/sear:library&gt;\n              &lt;sear:status&gt;unavailable&lt;/sear:status&gt;\n
+        \             &lt;sear:collection&gt;Periodicals&lt;/sear:collection&gt;\n
+        \             &lt;sear:callNumber&gt;(ML1 M819 Non-circulating )&lt;/sear:callNumber&gt;\n
+        \             &lt;sear:url&gt;http://aleph.library.nyu.edu/F?func=item-global&amp;amp;doc_library=LIB01&amp;amp;local_base=PRIMOCOMMON&amp;amp;doc_number=002895625&lt;/sear:url&gt;\n
+        \           &lt;/sear:LIBRARY&gt;\n          &lt;/sear:LIBRARIES&gt;\n          &lt;sear:LIBRARIES&gt;\n
+        \           &lt;sear:LIBRARY&gt;\n              &lt;sear:institution&gt;NYU&lt;/sear:institution&gt;\n
+        \             &lt;sear:library&gt;BOBST&lt;/sear:library&gt;\n              &lt;sear:status&gt;check_holdings&lt;/sear:status&gt;\n
+        \             &lt;sear:collection&gt;Main Collection&lt;/sear:collection&gt;\n
+        \             &lt;sear:callNumber&gt;(ML1 .M819 )&lt;/sear:callNumber&gt;\n
+        \             &lt;sear:url&gt;http://aleph.library.nyu.edu/F?func=item-global&amp;amp;doc_library=LIB01&amp;amp;local_base=PRIMOCOMMON&amp;amp;doc_number=002895625&lt;/sear:url&gt;\n
+        \           &lt;/sear:LIBRARY&gt;\n            &lt;sear:LIBRARY&gt;\n              &lt;sear:institution&gt;NYU&lt;/sear:institution&gt;\n
+        \             &lt;sear:library&gt;BWEB&lt;/sear:library&gt;\n              &lt;sear:status&gt;check_holdings&lt;/sear:status&gt;\n
+        \             &lt;sear:collection&gt;Internet Resources&lt;/sear:collection&gt;\n
+        \             &lt;sear:callNumber&gt;(ML1 .M819 Electronic access )&lt;/sear:callNumber&gt;\n
+        \             &lt;sear:url&gt;http://aleph.library.nyu.edu/F?func=item-global&amp;amp;doc_library=LIB01&amp;amp;local_base=PRIMOCOMMON&amp;amp;doc_number=002895625&lt;/sear:url&gt;\n
+        \           &lt;/sear:LIBRARY&gt;\n            &lt;sear:LIBRARY&gt;\n              &lt;sear:institution&gt;CU&lt;/sear:institution&gt;\n
+        \             &lt;sear:library&gt;CU&lt;/sear:library&gt;\n              &lt;sear:status&gt;check_holdings&lt;/sear:status&gt;\n
+        \             &lt;sear:collection&gt;Periodicals&lt;/sear:collection&gt;\n
+        \             &lt;sear:callNumber&gt;(Non-circulating )&lt;/sear:callNumber&gt;\n
+        \             &lt;sear:url&gt;http://aleph.library.nyu.edu/F?func=item-global&amp;amp;doc_library=LIB01&amp;amp;local_base=PRIMOCOMMON&amp;amp;doc_number=002895625&lt;/sear:url&gt;\n
+        \           &lt;/sear:LIBRARY&gt;\n            &lt;sear:LIBRARY&gt;\n              &lt;sear:institution&gt;NYHS&lt;/sear:institution&gt;\n
+        \             &lt;sear:library&gt;NYHS&lt;/sear:library&gt;\n              &lt;sear:status&gt;check_holdings&lt;/sear:status&gt;\n
+        \             &lt;sear:collection&gt;Periodicals&lt;/sear:collection&gt;\n
+        \             &lt;sear:callNumber&gt;(ML1 .M725 Non-circulating )&lt;/sear:callNumber&gt;\n
+        \             &lt;sear:url&gt;http://aleph.library.nyu.edu/F?func=item-global&amp;amp;doc_library=LIB01&amp;amp;local_base=PRIMOCOMMON&amp;amp;doc_number=002895625&lt;/sear:url&gt;\n
+        \           &lt;/sear:LIBRARY&gt;\n          &lt;/sear:LIBRARIES&gt;\n          &lt;sear:LINKS&gt;\n
+        \           &lt;sear:openurl&gt;&lt;![CDATA[https://getit.library.nyu.edu/resolve?umlaut.institution=NYUAD&amp;ctx_ver=Z39.88-2004&amp;ctx_enc=info:ofi/enc:UTF-8&amp;ctx_tim=2013-03-06T15%3A27%3A15IST&amp;url_ver=Z39.88-2004&amp;url_ctx_fmt=infofi/fmt:kev:mtx:ctx&amp;rfr_id=info:sid/primo.exlibrisgroup.com:primo-aleph002895625&amp;rft_val_fmt=info:ofi/fmt:kev:mtx:journal&amp;rft.genre=journal&amp;rft.jtitle=The%20Musical%20quarterly.&amp;rft.btitle=&amp;rft.aulast=&amp;rft.aufirst=&amp;rft.auinit=&amp;rft.auinit1=&amp;rft.auinitm=&amp;rft.ausuffix=&amp;rft.au=&amp;rft.aucorp=&amp;rft.volume=&amp;rft.issue=&amp;rft.part=&amp;rft.quarter=&amp;rft.ssn=&amp;rft.spage=&amp;rft.epage=&amp;rft.pages=&amp;rft.artnum=&amp;rft.pub=G.%20Schirmer&amp;rft.place=New%20York%20[etc.&amp;rft.issn=0027-4631&amp;rft.eissn=&amp;rft.isbn=&amp;rft.sici=&amp;rft.coden=&amp;rft_id=info:doi/&amp;rft.object_id=&amp;rft.primo=aleph002895625&amp;rft.eisbn=&amp;rft_dat=&lt;aleph&gt;002895625&lt;/aleph&gt;&amp;rft_id=info:oai/]]&gt;&lt;/sear:openurl&gt;\n
+        \           &lt;sear:backlink&gt;http://aleph.library.nyu.edu/F?func=direct&amp;amp;local_base=PRIMOCOMMON&amp;amp;doc_number=002895625&lt;/sear:backlink&gt;\n
+        \           &lt;sear:linktorsrc&gt;https://ezproxy.library.edu/login?url=http://mq.oxfordjournals.org/&lt;/sear:linktorsrc&gt;\n
+        \           &lt;sear:thumbnail/&gt;\n            &lt;sear:openurlfulltext&gt;&lt;![CDATA[https://getit.library.nyu.edu/resolve?umlaut.institution=NYUAD&amp;ctx_ver=Z39.88-2004&amp;sfx.ignore_date_threshold=1&amp;ctx_enc=info:ofi/enc:UTF-8&amp;ctx_tim=2013-03-06T15%3A27%3A15IST&amp;url_ver=Z39.88-2004&amp;url_ctx_fmt=infofi/fmt:kev:mtx:ctx&amp;rfr_id=info:sid/primo.exlibrisgroup.com:primo-aleph002895625&amp;rft_val_fmt=info:ofi/fmt:kev:mtx:journal&amp;rft.genre=journal&amp;rft.jtitle=The%20Musical%20quarterly.&amp;rft.btitle=&amp;rft.aulast=&amp;rft.aufirst=&amp;rft.auinit=&amp;rft.auinit1=&amp;rft.auinitm=&amp;rft.ausuffix=&amp;rft.au=&amp;rft.aucorp=&amp;rft.volume=&amp;rft.issue=&amp;rft.part=&amp;rft.quarter=&amp;rft.ssn=&amp;rft.spage=&amp;rft.epage=&amp;rft.pages=&amp;rft.artnum=&amp;rft.pub=G.%20Schirmer&amp;rft.place=New%20York%20[etc.&amp;rft.issn=0027-4631&amp;rft.eissn=&amp;rft.isbn=&amp;rft.sici=&amp;rft.coden=&amp;rft_id=info:doi/&amp;rft.object_id=&amp;svc_val_fmt=info:ofi/fmt:kev:mtx:sch_svc&amp;svc.fulltext=yes&amp;rft.eisbn=&amp;rft_dat=&lt;aleph&gt;002895625&lt;/aleph&gt;&amp;rft_id=info:oai/]]&gt;&lt;/sear:openurlfulltext&gt;\n
+        \           &lt;sear:linktoholdings&gt;http://aleph.library.nyu.edu/F?func=item-global&amp;amp;doc_library=LIB01&amp;amp;local_base=PRIMOCOMMON&amp;amp;doc_number=002895625&lt;/sear:linktoholdings&gt;\n
+        \           &lt;sear:linktoreview&gt;https://library.nyu.edu/persistent/lcn/aleph002895625?institution=NYU&amp;amp;persistent&lt;/sear:linktoreview&gt;\n
+        \           &lt;sear:lln02&gt;&lt;![CDATA[https://nyhs.aeon.atlas-sys.com/aeon/aeon.dll/OpenURL?bsn=002895625&amp;btitle=&amp;jtitle=The%20Musical%20quarterly.&amp;aulast=Mellon%20Project.&amp;date=1915&amp;edition=&amp;collection=Periodicals&amp;location=Periodicals&amp;callnumber=ML1
+        .M725 Non-circulating]]&gt;&lt;/sear:lln02&gt;\n          &lt;/sear:LINKS&gt;\n
+        \       &lt;/sear:DOC&gt;\n      &lt;/sear:DOCSET&gt;\n    &lt;/sear:RESULT&gt;\n
+        \   &lt;sear:searchToken&gt;0&lt;/sear:searchToken&gt;\n  &lt;/sear:JAGROOT&gt;\n&lt;/sear:SEGMENTS&gt;\n</searchBriefReturn></searchBriefResponse></soapenv:Body></soapenv:Envelope>"
+    http_version: 
+  recorded_at: Wed, 06 Mar 2013 20:27:15 GMT
+recorded_with: VCR 2.4.0
