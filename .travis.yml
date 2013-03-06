@@ -1,7 +1,6 @@
 language: ruby
 rvm:
   - 1.9.3
-  - jruby-19mode # JRuby (1.9)
 before_script:
   - mysql -e 'create database umlaut3_test;'
   - cd test/dummy && RAILS_ENV=test bundle exec rake --trace db:schema:load db:migrate && cd ../../
