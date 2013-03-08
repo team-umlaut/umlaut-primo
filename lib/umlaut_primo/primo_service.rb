@@ -466,7 +466,7 @@ class PrimoService < Service
 
   def config_file
     config_file = @primo_config.nil? ? default_config_file : "#{Rails.root}/config/"+ @primo_config
-    Rails.logger.warn("Primo config file not found: #{config_file}.") and return "" unless File.exists?(config_file)
+    Rails.logger.info("Primo config file not found: #{config_file}.") and return "" unless File.exists?(config_file)
     config_file
   end
   private :config_file
