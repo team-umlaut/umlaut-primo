@@ -8,7 +8,7 @@ ActiveSupport::TestCase.fixture_path = File.expand_path("../fixtures", __FILE__)
 Rails.backtrace_cleaner.remove_silencers!
 # Complete stack trace with deprecation warnings from rails
 ActiveSupport::Deprecation.debug = true
-it 
+
 # VCR is used to 'record' HTTP interactions with
 # third party services used in tests, and play em
 # back. Useful for efficiency, also useful for
