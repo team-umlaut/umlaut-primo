@@ -10,7 +10,7 @@ Umlaut services to provide full text service responses, holdings, etc. from the 
 ## Installation
 In order to use the Umlaut Primo service, first 
 [install Umlaut](https://github.com/team-umlaut/umlaut/wiki/Installation).
-Then, in your Gemfile, add in the umlaut-primo gem, `gem 'umlaut-primo', '~> 1.0.0'`. 
+Then, in your Gemfile, add in the umlaut-primo gem, `gem 'umlaut-primo', '~> 0.1.0'`. 
 Run `bundle intall` to get the Gem and then start your application as you normally would.
 
 ## Service Configuration
