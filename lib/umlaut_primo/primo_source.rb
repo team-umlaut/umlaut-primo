@@ -4,7 +4,37 @@
 # based on the given Primo sources and can be implemented per source.
 # 
 # PrimoSources are not necessary to use the Primo service andthey require programming.
-# However, they do allow further customization and functionality.
+# They do, however, allow further customization and functionality.
+# 
+# == Prerequisites
+# First, the PrimoService must be configured with the primo_source service type instead of holding.
+# 
+#   Primo: # Name of your choice
+#     type: PrimoService
+#     ...
+#     service_types:
+#       - primo_source
+#       - holding_search
+#       ...
+# 
+# ==Available Parameters
+# Several configurations parameters are available to be set in config/umlaut_services.yml.
+#   PrimoSource: # Name of your choice
+#     type: PrimoSource # Required
+#     priority: 3 # Required. Must be run after PrimoService
+#     base_url: http://primo.library.edu # Required
+#     vid: VID # Required
+#     institution: INST # Required
+#     source_attributes: # Optional.
+#       - request_link_supports_ajax_call
+#       - requestability
+# 
+# base_url:: _required_ host and port of Primo server for Primo display deep link
+# vid:: _required_ view id for Primo display deep link
+# institution:: _required_ institution id for Primo display deep link
+# source_attributes::  _optional_ Array of Holding attribute readers to persist to
+#   holding service_data; can be used to save custom source implementation attributes 
+#   for display by a custom holding partial
 # 
 class PrimoSource < PrimoService
 

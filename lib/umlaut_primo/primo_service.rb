@@ -1,10 +1,6 @@
 # == Overview
-# PrimoService is a Service that makes a call to the Primo web services based on the OpenURL key value pairs.
-#--
-# NOT YET:
-# It first looks for rft.primo *DEPRECATED*, failing that, it parses the identifier for an id.
-#++
-# It first looks for rft.primo, the Primo id.
+# PrimoService is an Umlaut Service that makes a call to the Primo web services based on the requested context object.
+# It first looks for rft.primo *DEPRECATED*, failing that, it parses the request referrer identifier for an id.
 # If the Primo id is present, the service gets the PNX record from the Primo web
 # services.
 # If no Primo id is found, the service searches Primo by (in order of precedence):
@@ -13,102 +9,100 @@
 # * Title, Author, Genre
 #
 # == Available Services
-# Several service types are available in the Primo service.  The default service types are:
+# Several service types are available in the PrimoService.  The default service types are:
 # fulltext, holding, holding_search, table_of_contents, referent_enhance, cover_image
 # Available service types are listed below and can be configured using the service_types parameter
-# in service.yml:
+# in config/umlaut_services.yml:
 # * fulltext - parsed from links/linktorsrc elements in the PNX record
 # * holding - parsed from display/availlibrary elements in the PNX record
 # * holding_search - link to an exact title search in Primo if no holdings found AND the OpenURL did not come from Primo
 # * primo_source - similar to holdings but used in conjuction with the PrimoSource service to map Primo records to their original sources; a PrimoSource service must be defined in service.yml for this to work
 # * table_of_contents - parsed from links/linktotoc elements in the PNX record
 # * referent_enhance - metadata parsed from the addata section of the PNX record when the record was found by Primo id
-# * cover_image - parsed from first addata/lad02 element in the PNX record
 # * highlighted_link - parsed from links/addlink elements in the PNX record
 #
 # ==Available Parameters
-# Several configurations parameters are available to be set in services.yml, e.g.
-#   Primo:
-#     type: PrimoService
-#     priority: 2 # After SFX, to get SFX metadata enhancement
-#     status: active
-#     base_url: http://bobcat.library.nyu.edu
-#     vid: NYU
-#     holding_search_institution: NYU
-#     holding_search_text: Search for this title in BobCat.
-#     suppress_holdings: [ !ruby/regexp '/\$\$LWEB/', !ruby/regexp '/\$\$1Restricted Internet Resources/' ]
-#     ez_proxy: !ruby/regexp '/https\:\/\/ezproxy\.library\.nyu\.edu\/login\?url=/'
-#     service_types:
+# Several configurations parameters are available to be set in config/umlaut_services.yml.
+#   Primo: # Name of your choice
+#     type: PrimoService # Required
+#     priority: 2 # Required. I suggest running after the SFX service so you get the SFX referent enhancements
+#     base_url: http://primo.library.edu # Required
+#     vid: VID # Required
+#     institution: INST # Required
+#     holding_search_institution: SEARCH_INST # Optional. Defaults to the institution above.
+#     holding_search_text: Search for this title in Primo. # Optional text for holding search.  Defaults to "Search for this title."
+#     suppress_holdings: [ !ruby/regexp '/\$\$LWEB/', !ruby/regexp '/\$\$1Restricted Internet Resources/' ] # Optional
+#     ez_proxy: !ruby/regexp '/https\:\/\/ezproxy\.library\.edu\/login\?url=/' # Optional
+#     service_types: # Optional. Defaults to [ "fulltext", "holding", "holding_search", "table_of_contents", "referent_enhance" ]
 #       - holding
 #       - holding_search
 #       - fulltext
 #       - table_of_contents
 #       - referent_enhance
-#       - cover_image
 #       - highlighted_link
+# 
 # base_url:: _required_ host and port of Primo server; used for Primo web services, deep links and holding_search
 # base_path:: *DEPRECATED* previous name of base_url
 # vid:: _required_ view id for Primo deep links and holding_search.
 # institution:: _required_ institution id for Primo institution; used for Primo web services
 # base_view_id:: *DEPRECATED* previous name of vid
-# holding_search_institution:: _required if service types include holding_search_ institution to be used for the holding_search
+# holding_search_institution:: if service types include holding_search_ and the holding search institution is different from 
+#             institution to be used for the holding_search
 # holding_search_text:: _optional_ text to display for the holding_search
-#                       default holding search text:: "Search for this title."
+#             default holding search text:: "Search for this title."
 # link_to_search_text:: *DEPRECATED* previous name of holding_search_text
 # service_types:: _optional_ array of strings that represent the service types desired.
-#                 options are: fulltext, holding, holding_search, table_of_contents,
-#                 referent_enhance, cover_image, primo_source
-#                 defaults are: fulltext, holding, holding_search, table_of_contents,
-#                 referent_enhance, cover_image
-#                 if no options are specified, default service types will be added.
+#             options are: fulltext, holding, holding_search, table_of_contents,
+#             referent_enhance, cover_image, primo_source
+#             defaults are: fulltext, holding, holding_search, table_of_contents,
+#             referent_enhance, cover_image
+#             if no options are specified, default service types will be added.
 # suppress_urls:: _optional_ array of strings or regexps to NOT use from the catalog.
-#                 Used for linktorsrc elements that may duplicate resources from in other services.
-#                 Regexps can be put in the services.yml like this:
-#                     [!ruby/regexp '/sagepub.com$/']
+#             Used for linktorsrc elements that may duplicate resources from in other services.
+#             Regexps can be put in the services.yml like this:
+#               [!ruby/regexp '/sagepub.com$/']
 # suppress_holdings:: _optional_ array of strings or regexps to NOT use from the catalog.
-#                     Used for availlibrary elements that may duplicate resources from in other services.
-#                     Regexps can be put in the services.yml like this:
-#                         [!ruby/regexp '/\$\$LWEB$/']
+#             Used for availlibrary elements that may duplicate resources from in other services.
+#             Regexps can be put in the services.yml like this:
+#               [!ruby/regexp '/\$\$LWEB$/']
 # suppress_tocs:: _optional_ array of strings or regexps to NOT link to for Tables of Contents.
-#                 Used for linktotoc elements that may duplicate resources from in other services.
-#                 Regexps can be put in the services.yml like this:
-#                     [!ruby/regexp '/\$\$LWEB$/']
+#             Used for linktotoc elements that may duplicate resources from in other services.
+#             Regexps can be put in the services.yml like this:
+#               [!ruby/regexp '/\$\$LWEB$/']
 # service_types:: _optional_ array of strings that represent the service types desired.
-#                 options are: fulltext, holding, holding_search, table_of_contents,
-#                 referent_enhance, cover_image, primo_source
-#                 defaults are: fulltext, holding, holding_search, table_of_contents,
-#                 referent_enhance, cover_image
-#                 if no options are specified, default service types will be added.
+#             options are: fulltext, holding, holding_search, table_of_contents,
+#             referent_enhance, cover_image, primo_source
+#             defaults are: fulltext, holding, holding_search, table_of_contents,
+#             referent_enhance
+#             if no options are specified, default service types will be added.
 # ez_proxy::  _optional_ string or regexp of an ezproxy prefix.
 #             used in the case where an ezproxy prefix (on any other regexp) is hardcoded in the URL,
 #             and needs to be removed in order to match against SFXUrls.
 #             Example:
 #                 !ruby/regexp '/https\:\/\/ezproxy\.library\.nyu\.edu\/login\?url=/'
 # primo_config::  _optional_ string representing the primo yaml config file in config/
-#                 default file name: primo.yml
-#                 hash mappings from yaml config
-#                    institutions:
-#                       "primo_institution_code": "Primo Institution String"
-#                    libraries:
-#                       "primo_library_code": "Primo Library String"
-#                    statuses:
-#                       "status1_code": "Status One"
-#                    sources:
-#                      data_source1:
-#                        base_url: "http://source1.base.url
-#                        type: source_type
-#                        class_name: Source1Implementation (in exlibris/primo/sources or exlibris/primo/sources/local)
-#                        source1_config_option1: source1_config_option1
-#                        source1_config_option2: source1_config_option2
-#                      data_source2:
-#                        base_url: "http://source2.base.url
-#                        type: source_type
-#                        class_name: Source2Implementation (in exlibris/primo/sources or exlibris/primo/sources/local)
-#                        source2_config_option1: source2_config_option1
-#                        source2_config_option2: source2_config_option2
-# holding_attributes::  _optional_ array of Holding attribute readers to save to
-#                       holding/primo_source service_data; can be used to save
-#                       custom source implementation attributes for display by a custom holding partial
+#             default file name: primo.yml
+#             hash mappings from yaml config
+#               institutions:
+#                 "primo_institution_code": "Primo Institution String"
+#               libraries:
+#                 "primo_library_code": "Primo Library String"
+#               availability_statuses:
+#                 "status1_code": "Status One"
+#               sources:
+#                 data_source1:
+#                   base_url: "http://source1.base.url
+#                   type: source_type
+#                   class_name: Source1Implementation (in exlibris/primo/sources or exlibris/primo/sources/local)
+#                   source1_config_option1: source1_config_option1
+#                     source1_config_option2: source1_config_option2
+#                 data_source2:
+#                   base_url: "http://source2.base.url
+#                   type: source_type
+#                   class_name: Source2Implementation (in exlibris/primo/sources or exlibris/primo/sources/local)
+#                   source2_config_option1: source2_config_option1
+#                   source2_config_option2: source2_config_option2
+# 
 require 'exlibris-primo'
 class PrimoService < Service
 
@@ -122,6 +116,7 @@ class PrimoService < Service
 
   # Overwrites Service#new.
   def initialize(config)
+    @holding_search_text = "Search for this title."
     # Configure Primo
     configure_primo
     # Attributes for holding service data.
@@ -153,18 +148,11 @@ class PrimoService < Service
     @suppress_related_links = []
     @suppress_holdings = []
     @service_types = [ "fulltext", "holding", "holding_search",
-      "table_of_contents", "referent_enhance", "cover_image" ] if @service_types.nil?
+      "table_of_contents", "referent_enhance" ] if @service_types.nil?
     backward_compatibility(config)
     super(config)
-    # For backward compatibility, handle the special case where holding_search_institution was not included.
-    # Set holding_search_institution to vid and print warning in the logs.
-    if @service_types.include?("holding_search") and @holding_search_institution.nil?
-      @holding_search_institution = @institution
-      Rails.logger.warn("Required parameter 'holding_search_institution' was not set.  Please set the appropriate value in umlaut_services.yml.  Defaulting institution to view id, #{@vid}.")
-    end # End backward compatibility maintenance
-    raise ArgumentError.new(
-      "Missing Service configuration parameter. Service type #{self.class} (id: #{self.id}) requires a config parameter named 'holding_search_institution'. Check your config/umlaut_services.yml file."
-    ) if @service_types.include?("holding_search") and @holding_search_institution.nil?
+    # Handle the case where holding_search_institution is the same as institution.
+    @holding_search_institution = @institution if @service_types.include?("holding_search") and @holding_search_institution.nil?
   end
 
   # Overwrites Service#service_types_generated.
@@ -368,7 +356,7 @@ class PrimoService < Service
   def add_holding_search_service(request)
     service_data = {}
     service_data[:type] = "link_to_search"
-    service_data[:display_text] = (@holding_search_text.nil?) ? "Search for this title." : @holding_search_text
+    service_data[:display_text] = @holding_search_text
     service_data[:note] = ""
     service_data[:url] = deep_link_search_url
     request.add_service_response(

@@ -24,6 +24,3 @@ default:
       base_url: http://bobcat.library.nyu.edu
       vid: NYU
       institution: NYU
-      holding_search_institution: NYU
-      holding_search_text: Search for this title in Primo.
-      ez_proxy: !ruby/regexp '/https\:\/\/ezproxy\.library\.edu\/login\?url=/'
