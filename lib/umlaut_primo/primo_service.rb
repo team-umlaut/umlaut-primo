@@ -181,13 +181,13 @@ class PrimoService < Service
     #   ISBN OR
     #   ISSN OR
     #   Title and author and genre
-    if @record_id
+    if((not @record_id.blank?))
       search.record_id! @record_id
-    elsif @isbn
+    elsif((not @isbn.blank?))
       search.isbn_is @isbn
-    elsif @issn
+    elsif((not @issn.blank?))
       search.isbn_is @issn
-    elsif @title and @author and @genre
+    elsif((not @title.blank?) and (not @author.blank?) and (not @genre.blank?))
       search.title_is(@title).creator_is(@author).genre_is(@genre)
     else # Don't do a search.
       return request.dispatched(self, true)
