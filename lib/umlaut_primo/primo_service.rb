@@ -188,7 +188,7 @@ class PrimoService < Service
     elsif((not @issn.blank?))
       search.isbn_is @issn
     elsif((not @title.blank?) and (not @author.blank?) and (not @genre.blank?))
-      search.title_is(@title).creator_is(@author).genre_is(@genre)
+      search.title_is(@title).creator_is(@author).any_is(@genre)
     else # Don't do a search.
       return request.dispatched(self, true)
     end
