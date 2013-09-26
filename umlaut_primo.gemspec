@@ -16,14 +16,16 @@ Gem::Specification.new do |s|
   s.files = Dir["{lib}/**/*"] + ["MIT-LICENSE", "Rakefile", "README.md"]
   s.test_files = Dir["test/**/*"]
 
-  s.add_dependency "rake", "~> 10.0.3"
   s.add_dependency "require_all", "~> 1.2.1"
   # s.add_dependency "umlaut", "~> 3.0.5"
   s.add_dependency "exlibris-primo", "~> 1.0.8"
+
   # Dummy app dependencies
+  s.add_development_dependency "rake", "~> 10.0.3"
   s.add_development_dependency "jquery-rails", "~> 2.2.1"
   s.add_development_dependency "mysql2", "~> 0.3.11"
   s.add_development_dependency "rdoc"
   s.add_development_dependency "vcr", "~> 2.4.0"
   s.add_development_dependency "webmock", "~> 1.9.0"
+  s.add_development_dependency "debugger", "~> 1.5.0"
 end
