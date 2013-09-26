@@ -16,7 +16,7 @@ Gem::Specification.new do |s|
   s.files = Dir["{lib}/**/*"] + ["MIT-LICENSE", "Rakefile", "README.md"]
   s.test_files = Dir["test/**/*"]
 
-  s.add_dependency "require_all", "~> 1.2.1"
+  s.add_dependency "require_all", ">= 1.2.1"
   # s.add_dependency "umlaut", "~> 3.0.5"
   s.add_dependency "exlibris-primo", "~> 1.0.8"
 
