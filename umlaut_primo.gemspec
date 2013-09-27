@@ -24,7 +24,6 @@ Gem::Specification.new do |s|
   s.add_development_dependency "rake", "~> 10.0.3"
   s.add_development_dependency "jquery-rails", "~> 2.2.1"
   s.add_development_dependency "mysql2", "~> 0.3.11"
-  s.add_development_dependency "rdoc"
   s.add_development_dependency "vcr", "~> 2.4.0"
   s.add_development_dependency "webmock", "~> 1.9.0"
   s.add_development_dependency "debugger", "~> 1.5.0"
