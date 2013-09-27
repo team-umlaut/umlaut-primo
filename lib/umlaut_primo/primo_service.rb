@@ -79,7 +79,7 @@
 #             used in the case where an ezproxy prefix (on any other regexp) is hardcoded in the URL,
 #             and needs to be removed in order to match against SFXUrls.
 #             Example:
-#                 !ruby/regexp '/https\:\/\/ezproxy\.library\.nyu\.edu\/login\?url=/'
+#                 !ruby/regexp '/https\:\/\/ezproxy\.library\.edu\/login\?url=/'
 # primo_config::  _optional_ string representing the primo yaml config file in config/
 #             default file name: primo.yml
 #             hash mappings from yaml config
