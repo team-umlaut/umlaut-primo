@@ -195,9 +195,9 @@ class PrimoService < Service
 
     begin
       records = search.records
-      # Enhance the referent with metadata from Primo Searcher if Primo record id is present
-      # i.e. if we did our search with the Primo system number
-      if @record_id and @service_types.include?("referent_enhance")
+      # Enhance the referent with metadata from Primo Searcher if Primo record id, ISSN
+      # or ISBN is present i.e. if we did our search with a Primo ID number
+      if (not (@record_id.blank? and @issn.blank? and @isbn.blank?)) and @service_types.include?("referent_enhance")
         # We'll take the first record, since there should only be one.
         enhance_referent(request, records.first)
       end

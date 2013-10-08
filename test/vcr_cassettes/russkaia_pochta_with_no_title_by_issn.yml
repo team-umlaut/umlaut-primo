@@ -1,0 +1,187 @@
+---
+http_interactions:
+- request:
+    method: post
+    uri: http://primo.library.edu/PrimoWebServices/services/searcher
+    body:
+      encoding: US-ASCII
+      string: <?xml version="1.0" encoding="UTF-8"?><env:Envelope xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:wsdl="http://primo.library.edu/PrimoWebServices/services/searcher"
+        xmlns:env="http://schemas.xmlsoap.org/soap/envelope/"><env:Body><wsdl:searchBrief><request><![CDATA[<searchRequest
+        xmlns="http://www.exlibris.com/primo/xsd/wsRequest" xmlns:uic="http://www.exlibris.com/primo/xsd/primoview/uicomponents"><PrimoSearchRequest
+        xmlns="http://www.exlibris.com/primo/xsd/search/request"><QueryTerms><BoolOpeator>AND</BoolOpeator><QueryTerm><IndexField>isbn</IndexField><PrecisionOperator>exact</PrecisionOperator><Value>1820-7278</Value></QueryTerm></QueryTerms><StartIndex>1</StartIndex><BulkSize>5</BulkSize><DidUMeanEnabled>false</DidUMeanEnabled></PrimoSearchRequest><institution>NYU</institution></searchRequest>]]></request></wsdl:searchBrief></env:Body></env:Envelope>
+    headers:
+      Soapaction:
+      - ! '"searchBrief"'
+      Content-Type:
+      - text/xml;charset=UTF-8
+      Content-Length:
+      - '930'
+      Accept:
+      - ! '*/*'
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Server:
+      - Apache-Coyote/1.1
+      X-Powered-By:
+      - Servlet 2.5; JBoss-5.0/JBossWeb-2.1
+      Content-Type:
+      - text/xml;charset=utf-8
+      Transfer-Encoding:
+      - chunked
+      Date:
+      - Tue, 08 Oct 2013 15:47:23 GMT
+    body:
+      encoding: US-ASCII
+      string: ! "<?xml version=\"1.0\" encoding=\"UTF-8\"?><soapenv:Envelope xmlns:soapenv=\"http://schemas.xmlsoap.org/soap/envelope/\"
+        xmlns:xsd=\"http://www.w3.org/2001/XMLSchema\" xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\"><soapenv:Body><ns1:searchBriefResponse
+        soapenv:encodingStyle=\"http://schemas.xmlsoap.org/soap/encoding/\" xmlns:ns1=\"http://primo.library.edu/PrimoWebServices/services/searcher\"><searchBriefReturn
+        xsi:type=\"soapenc:string\" xmlns:soapenc=\"http://schemas.xmlsoap.org/soap/encoding/\">&lt;SEGMENTS
+        xmlns=&quot;http://www.exlibrisgroup.com/xsd/jaguar/search&quot;&gt;\n  &lt;JAGROOT&gt;\n
+        \   &lt;RESULT&gt;\n      &lt;QUERYTRANSFORMS/&gt;\n      &lt;FACETLIST ACCURATE_COUNTERS=&quot;true&quot;&gt;\n
+        \       &lt;FACET NAME=&quot;creator&quot; COUNT=&quot;1&quot;&gt;\n          &lt;FACET_VALUES
+        KEY=&quot;Univerzitet u Beogradu. Katedra za slavistiku&quot; VALUE=&quot;1&quot;/&gt;\n
+        \       &lt;/FACET&gt;\n        &lt;FACET NAME=&quot;lcc&quot; COUNT=&quot;1&quot;&gt;\n
+        \         &lt;FACET_VALUES KEY=&quot;P - Language and literature.&quot; VALUE=&quot;1&quot;/&gt;\n
+        \       &lt;/FACET&gt;\n        &lt;FACET NAME=&quot;lang&quot; COUNT=&quot;2&quot;&gt;\n
+        \         &lt;FACET_VALUES KEY=&quot;rus&quot; VALUE=&quot;1&quot;/&gt;\n
+        \         &lt;FACET_VALUES KEY=&quot;ger&quot; VALUE=&quot;1&quot;/&gt;\n
+        \       &lt;/FACET&gt;\n        &lt;FACET NAME=&quot;rtype&quot; COUNT=&quot;1&quot;&gt;\n
+        \         &lt;FACET_VALUES KEY=&quot;journals&quot; VALUE=&quot;1&quot;/&gt;\n
+        \       &lt;/FACET&gt;\n        &lt;FACET NAME=&quot;topic&quot; COUNT=&quot;1&quot;&gt;\n
+        \         &lt;FACET_VALUES KEY=&quot;Russian literature&quot; VALUE=&quot;1&quot;/&gt;\n
+        \       &lt;/FACET&gt;\n        &lt;FACET NAME=&quot;tlevel&quot; COUNT=&quot;1&quot;&gt;\n
+        \         &lt;FACET_VALUES KEY=&quot;available&quot; VALUE=&quot;1&quot;/&gt;\n
+        \       &lt;/FACET&gt;\n        &lt;FACET NAME=&quot;pfilter&quot; COUNT=&quot;1&quot;&gt;\n
+        \         &lt;FACET_VALUES KEY=&quot;journals&quot; VALUE=&quot;1&quot;/&gt;\n
+        \       &lt;/FACET&gt;\n        &lt;FACET NAME=&quot;creationdate&quot; COUNT=&quot;1&quot;&gt;\n
+        \         &lt;FACET_VALUES KEY=&quot;2008&quot; VALUE=&quot;1&quot;/&gt;\n
+        \       &lt;/FACET&gt;\n        &lt;FACET NAME=&quot;domain&quot; COUNT=&quot;1&quot;&gt;\n
+        \         &lt;FACET_VALUES KEY=&quot;BOBST&quot; VALUE=&quot;1&quot;/&gt;\n
+        \       &lt;/FACET&gt;\n        &lt;FACET NAME=&quot;genre&quot; COUNT=&quot;1&quot;&gt;\n
+        \         &lt;FACET_VALUES KEY=&quot;Periodicals&quot; VALUE=&quot;1&quot;/&gt;\n
+        \       &lt;/FACET&gt;\n        &lt;FACET NAME=&quot;library&quot; COUNT=&quot;1&quot;&gt;\n
+        \         &lt;FACET_VALUES KEY=&quot;BOBST&quot; VALUE=&quot;1&quot;/&gt;\n
+        \       &lt;/FACET&gt;\n        &lt;FACET NAME=&quot;local1&quot; COUNT=&quot;1&quot;&gt;\n
+        \         &lt;FACET_VALUES KEY=&quot;Main Collection&quot; VALUE=&quot;1&quot;/&gt;\n
+        \       &lt;/FACET&gt;\n      &lt;/FACETLIST&gt;\n      &lt;DOCSET HIT_TIME=&quot;7&quot;
+        TOTALHITS=&quot;1&quot; FIRSTHIT=&quot;1&quot; LASTHIT=&quot;1&quot; TOTAL_TIME=&quot;32&quot;
+        IS_LOCAL=&quot;true&quot;&gt;\n        &lt;DOC ID=&quot;3801750&quot; RANK=&quot;1.0&quot;
+        NO=&quot;1&quot; SEARCH_ENGINE=&quot;Local Search Engine&quot; SEARCH_ENGINE_TYPE=&quot;Local
+        Search Engine&quot;&gt;\n          &lt;PrimoNMBib xmlns=&quot;http://www.exlibrisgroup.com/xsd/primo/primo_nm_bib&quot;&gt;\n
+        \           &lt;record&gt;\n              &lt;control&gt;\n                &lt;sourcerecordid&gt;003766758&lt;/sourcerecordid&gt;\n
+        \               &lt;sourceid&gt;nyu_aleph&lt;/sourceid&gt;\n                &lt;recordid&gt;nyu_aleph003766758&lt;/recordid&gt;\n
+        \               &lt;originalsourceid&gt;LIB01&lt;/originalsourceid&gt;\n                &lt;ilsapiid&gt;LIB01003766758&lt;/ilsapiid&gt;\n
+        \               &lt;sourceformat&gt;MARC21&lt;/sourceformat&gt;\n                &lt;sourcesystem&gt;Aleph&lt;/sourcesystem&gt;\n
+        \             &lt;/control&gt;\n              &lt;display&gt;\n                &lt;type&gt;journal&lt;/type&gt;\n
+        \               &lt;title&gt;Russkai&#x361;a pochta.&lt;/title&gt;\n                &lt;contributor&gt;&#x423;&#x43D;&#x438;&#x432;&#x435;&#x440;&#x437;&#x438;&#x442;&#x435;&#x442;
+        &#x443; &#x411;&#x435;&#x43E;&#x433;&#x440;&#x430;&#x434;&#x443;. &#x41A;&#x430;&#x442;&#x435;&#x434;&#x440;&#x430;
+        &#x437;&#x430; &#x441;&#x43B;&#x430;&#x432;&#x438;&#x441;&#x442;&#x438;&#x43A;&#x443;;
+        Univerzitet u Beogradu. Katedra za slavistiku&lt;/contributor&gt;\n                &lt;publisher&gt;&#x411;&#x435;&#x43B;&#x433;&#x440;&#x430;&#x434;
+        : &#x424;&#x438;&#x43B;&#x43E;&#x43B;&#x43E;&#x448;&#x43A;&#x438; &#x444;&#x430;&#x43A;&#x443;&#x43B;&#x442;&#x435;&#x442;,
+        &#x41A;&#x430;&#x442;&#x435;&#x434;&#x440;&#x430; &#x437;&#x430; &#x441;&#x43B;&#x430;&#x432;&#x438;&#x441;&#x442;&#x438;&#x43A;&#x443;;
+        Belgrad : Filolo&#x161;ki fakultet, Katedra za slavistiku&lt;/publisher&gt;\n
+        \               &lt;creationdate&gt;2008&lt;/creationdate&gt;\n                &lt;format&gt;v.
+        : ill. ; 24 cm.&lt;/format&gt;\n                &lt;identifier&gt;$$Cissn$$V1820-7278&lt;/identifier&gt;\n
+        \               &lt;subject&gt;Russian literature -- History and criticism
+        -- Periodicals&lt;/subject&gt;\n                &lt;language&gt;rus;ger&lt;/language&gt;\n
+        \               &lt;source&gt;nyu_aleph&lt;/source&gt;\n                &lt;availlibrary&gt;$$INYU$$LBOBST$$1Main
+        Collection$$2(PG2900 .R876 )$$Savailable$$32$$40$$5Y$$60$$XNYU50$$YBOBST$$ZMAIN&lt;/availlibrary&gt;\n
+        \               &lt;lds02&gt;nyu_aleph003766758&lt;/lds02&gt;\n                &lt;lds01&gt;NYU&lt;/lds01&gt;\n
+        \               &lt;availinstitution&gt;$$INYU$$Savailable&lt;/availinstitution&gt;\n
+        \               &lt;availpnx&gt;available&lt;/availpnx&gt;\n              &lt;/display&gt;\n
+        \             &lt;links&gt;\n                &lt;openurl&gt;$$Topenurl_journal&lt;/openurl&gt;\n
+        \               &lt;backlink&gt;$$Taleph_backlink$$DMore bibliographic information&lt;/backlink&gt;\n
+        \               &lt;openurlfulltext&gt;$$Topenurlfull_journal&lt;/openurlfulltext&gt;\n
+        \               &lt;linktoholdings&gt;$$Taleph_holdings&lt;/linktoholdings&gt;\n
+        \               &lt;linktoreview&gt;$$TpersistentUrl$$DCopy item link&lt;/linktoreview&gt;\n
+        \               &lt;linktouc&gt;$$Tworldcat_oclc$$DCheck other libraries (WorldCat&#xAE;)&lt;/linktouc&gt;\n
+        \             &lt;/links&gt;\n              &lt;search&gt;\n                &lt;creatorcontrib&gt;&#x423;&#x43D;&#x438;&#x432;&#x435;&#x440;&#x437;&#x438;&#x442;&#x435;&#x442;
+        &#x443; &#x411;&#x435;&#x43E;&#x433;&#x440;&#x430;&#x434;&#x443;. &#x41A;&#x430;&#x442;&#x435;&#x434;&#x440;&#x430;
+        &#x437;&#x430; &#x441;&#x43B;&#x430;&#x432;&#x438;&#x441;&#x442;&#x438;&#x43A;&#x443;.&lt;/creatorcontrib&gt;\n
+        \               &lt;creatorcontrib&gt;Univerzitet u Beogradu. Katedra za slavistiku&lt;/creatorcontrib&gt;\n
+        \               &lt;creatorcontrib&gt;Univerzitet u Beogradu. Filolo&#x161;ki
+        fakultet. Katedra za slavistiku&lt;/creatorcontrib&gt;\n                &lt;creatorcontrib&gt;Kafedra
+        slavistiki Belgradskogo universiteta&lt;/creatorcontrib&gt;\n                &lt;title&gt;Russkai&#x361;a
+        pochta.&lt;/title&gt;\n                &lt;subject&gt;Russian literature  History
+        and criticism Periodicals&lt;/subject&gt;\n                &lt;general&gt;Filolo&#x161;ki
+        fakultet, Katedra za slavistiku&lt;/general&gt;\n                &lt;general&gt;&#x424;&#x438;&#x43B;&#x43E;&#x43B;&#x43E;&#x448;&#x43A;&#x438;
+        &#x444;&#x430;&#x43A;&#x443;&#x43B;&#x442;&#x435;&#x442;, &#x41A;&#x430;&#x442;&#x435;&#x434;&#x440;&#x430;
+        &#x437;&#x430; &#x441;&#x43B;&#x430;&#x432;&#x438;&#x441;&#x442;&#x438;&#x43A;&#x443;&lt;/general&gt;\n
+        \               &lt;general&gt;&quot;Zhurnal o russko&#x12D; literature i
+        kul&#x2B9;ture.&quot;&lt;/general&gt;\n                &lt;sourceid&gt;nyu_aleph&lt;/sourceid&gt;\n
+        \               &lt;recordid&gt;nyu_aleph003766758&lt;/recordid&gt;\n                &lt;isbn&gt;1820-7278&lt;/isbn&gt;\n
+        \               &lt;rsrctype&gt;journal&lt;/rsrctype&gt;\n                &lt;creationdate&gt;2008&lt;/creationdate&gt;\n
+        \               &lt;addtitle&gt;&#x420;&#x443;&#x441;&#x441;&#x43A;&#x430;&#x44F;
+        &#x43F;&#x43E;&#x447;&#x442;&#x430;.&lt;/addtitle&gt;\n                &lt;searchscope&gt;BOBST&lt;/searchscope&gt;\n
+        \               &lt;searchscope&gt;BOBST Main Collection&lt;/searchscope&gt;\n
+        \               &lt;searchscope&gt;nyu_aleph&lt;/searchscope&gt;\n                &lt;searchscope&gt;NYU&lt;/searchscope&gt;\n
+        \               &lt;scope&gt;BOBST&lt;/scope&gt;\n                &lt;scope&gt;BOBST
+        Main Collection&lt;/scope&gt;\n                &lt;scope&gt;nyu_aleph&lt;/scope&gt;\n
+        \               &lt;scope&gt;NYU&lt;/scope&gt;\n                &lt;lsr01&gt;PG2900
+        .R876&lt;/lsr01&gt;\n                &lt;lsr01&gt;PG2900.R876&lt;/lsr01&gt;\n
+        \               &lt;lsr02&gt;Filolo&#x161;ki fakultet, Katedra za slavistiku&lt;/lsr02&gt;\n
+        \             &lt;/search&gt;\n              &lt;sort&gt;\n                &lt;title&gt;&#x420;&#x443;&#x441;&#x441;&#x43A;&#x430;&#x44F;
+        &#x43F;&#x43E;&#x447;&#x442;&#x430;.&lt;/title&gt;\n                &lt;creationdate&gt;2008&lt;/creationdate&gt;\n
+        \               &lt;author&gt;&#x423;&#x43D;&#x438;&#x432;&#x435;&#x440;&#x437;&#x438;&#x442;&#x435;&#x442;
+        &#x443; &#x411;&#x435;&#x43E;&#x433;&#x440;&#x430;&#x434;&#x443;. &#x41A;&#x430;&#x442;&#x435;&#x434;&#x440;&#x430;
+        &#x437;&#x430; &#x441;&#x43B;&#x430;&#x432;&#x438;&#x441;&#x442;&#x438;&#x43A;&#x443;.&lt;/author&gt;\n
+        \               &lt;lso01&gt;2008&lt;/lso01&gt;\n              &lt;/sort&gt;\n
+        \             &lt;facets&gt;\n                &lt;language&gt;rus&lt;/language&gt;\n
+        \               &lt;language&gt;ger&lt;/language&gt;\n                &lt;creationdate&gt;2008&lt;/creationdate&gt;\n
+        \               &lt;topic&gt;Russian literature&#x2013;History and criticism&#x2013;Periodicals&lt;/topic&gt;\n
+        \               &lt;collection&gt;BOBST&lt;/collection&gt;\n                &lt;toplevel&gt;available&lt;/toplevel&gt;\n
+        \               &lt;prefilter&gt;journals&lt;/prefilter&gt;\n                &lt;rsrctype&gt;journals&lt;/rsrctype&gt;\n
+        \               &lt;creatorcontrib&gt;Univerzitet u Beogradu. Katedra za slavistiku&lt;/creatorcontrib&gt;\n
+        \               &lt;genre&gt;Periodicals&lt;/genre&gt;\n                &lt;library&gt;BOBST&lt;/library&gt;\n
+        \               &lt;lfc01&gt;Main Collection&lt;/lfc01&gt;\n                &lt;classificationlcc&gt;P
+        - Language and literature.&#x2013;Slavic. Baltic. Albanian&lt;/classificationlcc&gt;\n
+        \               &lt;frbrgroupid&gt;105469017&lt;/frbrgroupid&gt;\n                &lt;frbrtype&gt;6&lt;/frbrtype&gt;\n
+        \             &lt;/facets&gt;\n              &lt;dedup&gt;\n                &lt;t&gt;2&lt;/t&gt;\n
+        \               &lt;c1&gt;2008262508&lt;/c1&gt;\n                &lt;c2&gt;1820-7278&lt;/c2&gt;\n
+        \               &lt;c3&gt;russkaiapochta&lt;/c3&gt;\n                &lt;c4&gt;belgrad&lt;/c4&gt;\n
+        \               &lt;f1&gt;2008262508&lt;/f1&gt;\n                &lt;f3&gt;18207278&lt;/f3&gt;\n
+        \               &lt;f6&gt;2008&lt;/f6&gt;\n                &lt;f7&gt;russkaia
+        pochta&lt;/f7&gt;\n                &lt;f8&gt;russkaia pochta&lt;/f8&gt;\n
+        \               &lt;f9&gt;ru&lt;/f9&gt;\n                &lt;f10&gt;belgrad&lt;/f10&gt;\n
+        \             &lt;/dedup&gt;\n              &lt;frbr&gt;\n                &lt;t&gt;1&lt;/t&gt;\n
+        \               &lt;k1&gt;$$Kuniverzitet u beogradu katedra za slavistiku$$AA&lt;/k1&gt;\n
+        \               &lt;k3&gt;$$Krusskaia pochta$$AT&lt;/k3&gt;\n              &lt;/frbr&gt;\n
+        \             &lt;delivery&gt;\n                &lt;institution&gt;NYU&lt;/institution&gt;\n
+        \               &lt;delcategory&gt;Physical Item&lt;/delcategory&gt;\n              &lt;/delivery&gt;\n
+        \             &lt;enrichment&gt;\n                &lt;classificationlcc&gt;PG2900&lt;/classificationlcc&gt;\n
+        \             &lt;/enrichment&gt;\n              &lt;ranking&gt;\n                &lt;booster1&gt;1&lt;/booster1&gt;\n
+        \               &lt;booster2&gt;1&lt;/booster2&gt;\n              &lt;/ranking&gt;\n
+        \             &lt;addata&gt;\n                &lt;addau&gt;Univerzitet u Beogradu.
+        Katedra za slavistiku&lt;/addau&gt;\n                &lt;jtitle&gt;Russkai&#x361;a
+        pochta.&lt;/jtitle&gt;\n                &lt;date&gt;2008&lt;/date&gt;\n                &lt;risdate&gt;2008&lt;/risdate&gt;\n
+        \               &lt;issn&gt;1820-7278&lt;/issn&gt;\n                &lt;format&gt;journal&lt;/format&gt;\n
+        \               &lt;genre&gt;journal&lt;/genre&gt;\n                &lt;ristype&gt;JOUR&lt;/ristype&gt;\n
+        \               &lt;cop&gt;Belgrad&lt;/cop&gt;\n                &lt;pub&gt;Filolo&#x161;ki
+        fakultet, Katedra za slavistiku&lt;/pub&gt;\n                &lt;oclcid&gt;261559574&lt;/oclcid&gt;\n
+        \               &lt;lccn&gt;2008262508&lt;/lccn&gt;\n                &lt;lad01&gt;BOBST&lt;/lad01&gt;\n
+        \               &lt;lad01&gt;Physical Item&lt;/lad01&gt;\n              &lt;/addata&gt;\n
+        \           &lt;/record&gt;\n          &lt;/PrimoNMBib&gt;\n          &lt;GETIT
+        deliveryCategory=&quot;Physical Item&quot; GetIt1=&quot;http://aleph.library.nyu.edu/F?func=item-global&amp;amp;doc_library=LIB01&amp;amp;local_base=PRIMOCOMMON&amp;amp;doc_number=003766758&quot;
+        GetIt2=&quot;https://getit.library.nyu.edu/resolve?&amp;amp;ctx_ver=Z39.88-2004&amp;amp;ctx_enc=info:ofi/enc:UTF-8&amp;amp;ctx_tim=2013-10-08T11%3A47%3A23IST&amp;amp;url_ver=Z39.88-2004&amp;amp;url_ctx_fmt=infofi/fmt:kev:mtx:ctx&amp;amp;rfr_id=info:sid/primo.exlibrisgroup.com:primo-nyu_aleph003766758&amp;amp;rft_val_fmt=info:ofi/fmt:kev:mtx:journal&amp;amp;rft.genre=journal&amp;amp;rft.jtitle=Russkai&#x361;a%20pochta.&amp;amp;rft.btitle=&amp;amp;rft.aulast=&amp;amp;rft.aufirst=&amp;amp;rft.auinit=&amp;amp;rft.auinit1=&amp;amp;rft.auinitm=&amp;amp;rft.ausuffix=&amp;amp;rft.au=&amp;amp;rft.aucorp=&amp;amp;rft.volume=&amp;amp;rft.issue=&amp;amp;rft.part=&amp;amp;rft.quarter=&amp;amp;rft.ssn=&amp;amp;rft.spage=&amp;amp;rft.epage=&amp;amp;rft.pages=&amp;amp;rft.artnum=&amp;amp;rft.pub=Filolo&#x161;ki%20fakultet%2C%20Katedra%20za%20slavistiku&amp;amp;rft.place=Belgrad&amp;amp;rft.issn=1820-7278&amp;amp;rft.eissn=&amp;amp;rft.isbn=&amp;amp;rft.sici=&amp;amp;rft.coden=&amp;amp;rft_id=info:doi/&amp;amp;rft.object_id=&amp;amp;rft.primo=nyu_aleph003766758&amp;amp;rft.eisbn=&amp;amp;rft_dat=&amp;lt;nyu_aleph&gt;003766758&amp;lt;/nyu_aleph&gt;&amp;amp;rft_id=info:oai/&quot;/&gt;\n
+        \         &lt;LIBRARIES&gt;\n            &lt;LIBRARY&gt;\n              &lt;institution&gt;NYU&lt;/institution&gt;\n
+        \             &lt;library&gt;BOBST&lt;/library&gt;\n              &lt;status&gt;available&lt;/status&gt;\n
+        \             &lt;collection&gt;Main Collection&lt;/collection&gt;\n              &lt;callNumber&gt;(PG2900
+        .R876 )&lt;/callNumber&gt;\n              &lt;url&gt;http://aleph.library.nyu.edu/F?func=item-global&amp;amp;doc_library=LIB01&amp;amp;local_base=PRIMOCOMMON&amp;amp;doc_number=003766758&lt;/url&gt;\n
+        \           &lt;/LIBRARY&gt;\n          &lt;/LIBRARIES&gt;\n          &lt;LINKS&gt;\n
+        \           &lt;openurl&gt;&lt;![CDATA[https://getit.library.nyu.edu/resolve?&amp;ctx_ver=Z39.88-2004&amp;ctx_enc=info:ofi/enc:UTF-8&amp;ctx_tim=2013-10-08T11%3A47%3A23IST&amp;url_ver=Z39.88-2004&amp;url_ctx_fmt=infofi/fmt:kev:mtx:ctx&amp;rfr_id=info:sid/primo.exlibrisgroup.com:primo-nyu_aleph003766758&amp;rft_val_fmt=info:ofi/fmt:kev:mtx:journal&amp;rft.genre=journal&amp;rft.jtitle=Russkai&#x361;a%20pochta.&amp;rft.btitle=&amp;rft.aulast=&amp;rft.aufirst=&amp;rft.auinit=&amp;rft.auinit1=&amp;rft.auinitm=&amp;rft.ausuffix=&amp;rft.au=&amp;rft.aucorp=&amp;rft.volume=&amp;rft.issue=&amp;rft.part=&amp;rft.quarter=&amp;rft.ssn=&amp;rft.spage=&amp;rft.epage=&amp;rft.pages=&amp;rft.artnum=&amp;rft.pub=Filolo&#x161;ki%20fakultet%2C%20Katedra%20za%20slavistiku&amp;rft.place=Belgrad&amp;rft.issn=1820-7278&amp;rft.eissn=&amp;rft.isbn=&amp;rft.sici=&amp;rft.coden=&amp;rft_id=info:doi/&amp;rft.object_id=&amp;rft.primo=nyu_aleph003766758&amp;rft.eisbn=&amp;rft_dat=&lt;nyu_aleph&gt;003766758&lt;/nyu_aleph&gt;&amp;rft_id=info:oai/]]&gt;&lt;/openurl&gt;\n
+        \           &lt;backlink&gt;http://aleph.library.nyu.edu/F?func=direct&amp;amp;local_base=PRIMOCOMMON&amp;amp;doc_number=003766758&lt;/backlink&gt;\n
+        \           &lt;thumbnail/&gt;\n            &lt;openurlfulltext&gt;&lt;![CDATA[https://getit.library.nyu.edu/resolve?&amp;ctx_ver=Z39.88-2004&amp;sfx.ignore_date_threshold=1&amp;ctx_enc=info:ofi/enc:UTF-8&amp;ctx_tim=2013-10-08T11%3A47%3A23IST&amp;url_ver=Z39.88-2004&amp;url_ctx_fmt=infofi/fmt:kev:mtx:ctx&amp;rfr_id=info:sid/primo.exlibrisgroup.com:primo-nyu_aleph003766758&amp;rft_val_fmt=info:ofi/fmt:kev:mtx:journal&amp;rft.genre=journal&amp;rft.jtitle=Russkai&#x361;a%20pochta.&amp;rft.btitle=&amp;rft.aulast=&amp;rft.aufirst=&amp;rft.auinit=&amp;rft.auinit1=&amp;rft.auinitm=&amp;rft.ausuffix=&amp;rft.au=&amp;rft.aucorp=&amp;rft.volume=&amp;rft.issue=&amp;rft.part=&amp;rft.quarter=&amp;rft.ssn=&amp;rft.spage=&amp;rft.epage=&amp;rft.pages=&amp;rft.artnum=&amp;rft.pub=Filolo&#x161;ki%20fakultet%2C%20Katedra%20za%20slavistiku&amp;rft.place=Belgrad&amp;rft.issn=1820-7278&amp;rft.eissn=&amp;rft.isbn=&amp;rft.sici=&amp;rft.coden=&amp;rft_id=info:doi/&amp;rft.object_id=&amp;svc_val_fmt=info:ofi/fmt:kev:mtx:sch_svc&amp;svc.fulltext=yes&amp;rft.eisbn=&amp;rft_dat=&lt;nyu_aleph&gt;003766758&lt;/nyu_aleph&gt;&amp;rft_id=info:oai/]]&gt;&lt;/openurlfulltext&gt;\n
+        \           &lt;linktoholdings&gt;http://aleph.library.nyu.edu/F?func=item-global&amp;amp;doc_library=LIB01&amp;amp;local_base=PRIMOCOMMON&amp;amp;doc_number=003766758&lt;/linktoholdings&gt;\n
+        \           &lt;linktoreview&gt;https://library.nyu.edu/persistent/lcn/nyu_aleph003766758?institution=NYU&amp;amp;persistent&lt;/linktoreview&gt;\n
+        \           &lt;linktouc&gt;http://www.worldcat.org/search?q=no%3A261559574&lt;/linktouc&gt;\n
+        \         &lt;/LINKS&gt;\n        &lt;/DOC&gt;\n      &lt;/DOCSET&gt;\n    &lt;/RESULT&gt;\n
+        \   &lt;searchToken&gt;0&lt;/searchToken&gt;\n  &lt;/JAGROOT&gt;\n&lt;/SEGMENTS&gt;</searchBriefReturn></ns1:searchBriefResponse></soapenv:Body></soapenv:Envelope>"
+    http_version: 
+  recorded_at: Tue, 08 Oct 2013 15:47:23 GMT
+recorded_with: VCR 2.4.0

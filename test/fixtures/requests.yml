@@ -18,3 +18,6 @@ the_musical_quarterly_by_id:
 
 the_musical_quarterly_by_issn:
   referent: the_musical_quarterly
+
+russkaia_pochta_with_no_title_by_issn:
+  referent: russkaia_pochta_with_no_title

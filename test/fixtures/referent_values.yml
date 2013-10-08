@@ -88,9 +88,41 @@ the_musical_quarterly_3:
 
 the_musical_quarterly_4:
   referent: the_musical_quarterly
+  key_name: "isbn"
+  value: ""
+  normalized_value: ""
+  metadata: true
+  private_data: false
+
+the_musical_quarterly_5:
+  referent: the_musical_quarterly
   key_name: "issn"
   value: "0027-4631"
   normalized_value: "0027-4631"
+  metadata: true
+  private_data: false
+
+russkaia_pochta_with_no_title_1:
+  referent: russkaia_pochta_with_no_title
+  key_name: "format"
+  value: "journal"
+  normalized_value: "journal"
+  metadata: true
+  private_data: false
+
+russkaia_pochta_with_no_title_2:
+  referent: russkaia_pochta_with_no_title
+  key_name: "genre"
+  value: "journal"
+  normalized_value: "journal"
+  metadata: true
+  private_data: false
+
+russkaia_pochta_with_no_title_3:
+  referent: russkaia_pochta_with_no_title
+  key_name: "issn"
+  value: "1820-7278"
+  normalized_value: "1820-7278"
   metadata: true
   private_data: false
 

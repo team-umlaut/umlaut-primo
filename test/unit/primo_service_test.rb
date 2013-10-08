@@ -1,3 +1,4 @@
+# encoding: UTF-8
 require 'test_helper'
 require 'fileutils'
 class PrimoServiceTest < ActiveSupport::TestCase
@@ -224,5 +225,34 @@ class PrimoServiceTest < ActiveSupport::TestCase
     assert_equal("dedupmrg17737330", view_data[:record_id])
     assert_equal("aleph000935132", view_data[:original_id])
     assert_equal("1997 - 2000 Full Text available from ProQuest", view_data[:display])
+  end
+
+  test "issn search with no title" do
+    request = requests(:russkaia_pochta_with_no_title_by_issn)
+    # Make sure the referent values are nil to start with
+    assert_nil(request.referent.title, "Title was not nil before resolving by ISSN.")
+    assert_nil(request.referent.metadata["jtitle"], "Journal title was not nil before resolving by ISSN.")
+    assert_nil(request.referent.metadata["place"], "Publication place was not nil before resolving by ISSN.")
+    assert_nil(request.referent.metadata["pub"], "Publisher was not nil before resolving by ISSN.")
+    assert_nil(request.referent.metadata["oclcnum"], "OCLC number was nil before resolving by ISSN.")
+    assert_nil(request.referent.metadata["lccn"], "LCCN was not nil before resolving by ISSN.")
+
+    # Handle the service
+    VCR.use_cassette("russkaia pochta with no title by issn") do
+      @primo_service.handle(request)
+    end
+
+    # Get latest from the DB after handling the service.
+    request.referent.referent_values.reset
+    request.dispatched_services.reset
+    request.service_responses.reset
+
+    # Test that the referent was enhanced
+    assert_equal("russkai͡a pochta.", request.referent.title, "Title (normalized) was not enhances when resolveing by ISSN.")
+    assert_equal("Russkai͡a pochta.", request.referent.metadata["jtitle"], "Journal title was not enhanced when resolving by ISSN.")
+    assert_equal("Belgrad", request.referent.metadata["place"], "Publication place was not enhanced when resolving by ISSN.")
+    assert_equal("Filološki fakultet, Katedra za slavistiku", request.referent.metadata["pub"], "Publisher was not enhanced when resolving by ISSN.")
+    assert_equal("261559574", request.referent.metadata["oclcnum"], "OCLC number was not enhanced when resolving by ISSN.")
+    assert_equal("2008262508", request.referent.metadata["lccn"], "LCCN was not enhanced when resolving by ISSN.")
   end
 end
