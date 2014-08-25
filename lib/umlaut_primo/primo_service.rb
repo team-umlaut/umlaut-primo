@@ -40,13 +40,13 @@
 #       - table_of_contents
 #       - referent_enhance
 #       - highlighted_link
-# 
+#
 # base_url:: _required_ host and port of Primo server; used for Primo web services, deep links and holding_search
 # base_path:: *DEPRECATED* previous name of base_url
 # vid:: _required_ view id for Primo deep links and holding_search.
 # institution:: _required_ institution id for Primo institution; used for Primo web services
 # base_view_id:: *DEPRECATED* previous name of vid
-# holding_search_institution:: if service types include holding_search_ and the holding search institution is different from 
+# holding_search_institution:: if service types include holding_search_ and the holding search institution is different from
 #             institution to be used for the holding_search
 # holding_search_text:: _optional_ text to display for the holding_search
 #             default holding search text:: "Search for this title."
@@ -102,7 +102,7 @@
 #                   class_name: Source2Implementation (in exlibris/primo/sources or exlibris/primo/sources/local)
 #                   source2_config_option1: source2_config_option1
 #                   source2_config_option2: source2_config_option2
-# 
+#
 require 'exlibris-primo'
 class PrimoService < Service
 
@@ -166,99 +166,79 @@ class PrimoService < Service
 
   # Overwrites Service#handle.
   def handle(request)
-    # Get the possible search params
-    @identifier = request.referrer_id
-    @record_id = record_id(request)
-    @isbn = isbn(request)
-    @issn = issn(request)
-    @title = title(request)
-    @author = author(request)
-    @genre = genre(request)
-    # Setup the Primo search object
-    search = Exlibris::Primo::Search.new.base_url!(@base_url).institution!(@institution)
-    # Search if we have a:
-    #   Primo record id OR
-    #   ISBN OR
-    #   ISSN OR
-    #   Title and author and genre
-    if((not @record_id.blank?))
-      search.record_id! @record_id
-    elsif((not @isbn.blank?))
-      search.isbn_is @isbn
-    elsif((not @issn.blank?))
-      search.isbn_is @issn
-    elsif((not @title.blank?) and (not @author.blank?) and (not @genre.blank?))
-      search.title_is(@title).creator_is(@author).any_is(@genre)
-    else # Don't do a search.
-      return request.dispatched(self, true)
-    end
-
-    begin
+    search = search(request)
+    return request.dispatched(self, true) if search.nil?
+    records = search.records
+    if records.blank? && /^dedupmrg/ === @record_id
+      @record_id = nil
+      search = search(request, true)
+      return request.dispatched(self, true) if search.nil?
       records = search.records
-      # Enhance the referent with metadata from Primo Searcher if Primo record id, ISSN
-      # or ISBN is present i.e. if we did our search with a Primo ID number
-      if (not (@record_id.blank? and @issn.blank? and @isbn.blank?)) and @service_types.include?("referent_enhance")
-        # We'll take the first record, since there should only be one.
-        enhance_referent(request, records.first)
-      end
-      # Get cover image only if @record_id is defined
-      # TODO: make cover image service smarter and only
-      # include things that are actually URLs.
-      # if @record_id and @service_types.include?("cover_image")
-      #   cover_image = primo_searcher.cover_image
-      #   unless cover_image.nil?
-      #     request.add_service_response(
-      #       :service => self,
-      #       :display_text => 'Cover Image',
-      #       :key => 'medium',
-      #       :url => cover_image,
-      #       :size => 'medium',
-      #       :service_type_value => :cover_image)
-      #   end
-      # end
-      # Add holding services
-      if @service_types.include?("holding") or @service_types.include?("primo_source")
-        # Get holdings from the returned Primo records
-        holdings = records.collect{|record| record.holdings}.flatten
-        # Add the holding services
-        add_holding_services(request, holdings) unless holdings.empty?
-        # Provide title search functionality in the absence of available holdings.
-        # The logic below says only present the holdings search in the following case:
-        #   We've configured to present holding search
-        #   We didn't find any actual holdings
-        #   We didn't come from Primo (prevent round trips since that would be weird)
-        #   We have a title to search for.
-        if @service_types.include?("holding_search") and holdings.empty? and (not primo_identifier?) and (not @title.nil?)
-          # Add the holding search service
-          add_holding_search_service(request)
-        end
-      end
-      # Add fulltext services
-      if @service_types.include?("fulltext")
-        # Get fulltexts from the returned Primo records
-        fulltexts = records.collect{|record| record.fulltexts}.flatten
-        # Add the fulltext services
-        add_fulltext_services(request, fulltexts) unless fulltexts.empty?
-      end
-      # Add table of contents services
-      if @service_types.include?("table_of_contents")
-        # Get tables of contents from the returned Primo records
-        tables_of_contents = records.collect{|record| record.tables_of_contents}.flatten
-        # Add the table of contents services
-        add_table_of_contents_services(request, tables_of_contents) unless tables_of_contents.empty?
-      end
-      if @service_types.include?("highlighted_link")
-        # Get related links from the returned Primo records
-        highlighted_links = records.collect{|record| record.related_links}.flatten
-        add_highlighted_link_services(request, highlighted_links) unless highlighted_links.empty?
-      end
-    rescue Exception => e
-      # Log error and return finished
-      Rails.logger.error(
-        "Error in Exlibris::Primo::Search. "+
-        "Returning 0 Primo services for search #{search.inspect}. "+
-        "Exlibris::Primo::Search raised the following exception:\n#{e}\n#{e.backtrace.inspect}")
     end
+    # Enhance the referent with metadata from Primo Searcher if Primo record id, ISSN
+    # or ISBN is present i.e. if we did our search with a Primo ID number
+    if (@record_id.present? || @issn.present? || @isbn.present?) && @service_types.include?("referent_enhance")
+      # We'll take the first record, since there should only be one.
+      enhance_referent(request, records.first)
+    end
+    # Get cover image only if @record_id is defined
+    # TODO: make cover image service smarter and only
+    # include things that are actually URLs.
+    # if @record_id and @service_types.include?("cover_image")
+    #   cover_image = primo_searcher.cover_image
+    #   unless cover_image.nil?
+    #     request.add_service_response(
+    #       :service => self,
+    #       :display_text => 'Cover Image',
+    #       :key => 'medium',
+    #       :url => cover_image,
+    #       :size => 'medium',
+    #       :service_type_value => :cover_image)
+    #   end
+    # end
+    # Add holding services
+    if @service_types.include?("holding") || @service_types.include?("primo_source")
+      # Get holdings from the returned Primo records
+      holdings = records.collect{|record| record.holdings}.flatten
+      # Add the holding services
+      add_holding_services(request, holdings) unless holdings.empty?
+      # Provide title search functionality in the absence of available holdings.
+      # The logic below says only present the holdings search in the following case:
+      #   We've configured to present holding search
+      #   We didn't find any actual holdings
+      #   We didn't come from Primo (prevent round trips since that would be weird)
+      #   We have a title to search for.
+      if @service_types.include?("holding_search") and holdings.empty? and (not primo_identifier?) and (not @title.nil?)
+        # Add the holding search service
+        add_holding_search_service(request)
+      end
+    end
+    # Add fulltext services
+    if @service_types.include?("fulltext")
+      # Get fulltexts from the returned Primo records
+      fulltexts = records.collect{|record| record.fulltexts}.flatten
+      # Add the fulltext services
+      add_fulltext_services(request, fulltexts) unless fulltexts.empty?
+    end
+    # Add table of contents services
+    if @service_types.include?("table_of_contents")
+      # Get tables of contents from the returned Primo records
+      tables_of_contents = records.collect{|record| record.tables_of_contents}.flatten
+      # Add the table of contents services
+      add_table_of_contents_services(request, tables_of_contents) unless tables_of_contents.empty?
+    end
+    if @service_types.include?("highlighted_link")
+      # Get related links from the returned Primo records
+      highlighted_links = records.collect{|record| record.related_links}.flatten
+      add_highlighted_link_services(request, highlighted_links) unless highlighted_links.empty?
+    end
+  rescue Exception => e
+    # Log error and return finished
+    Rails.logger.error(
+      "Error in Exlibris::Primo::Search. "+
+      "Returning 0 Primo services for request #{request.inspect}. "+
+      "Exlibris::Primo::Search raised the following exception:\n#{e}\n#{e.backtrace.inspect}")
+  ensure
     return request.dispatched(self, true)
   end
 
@@ -286,6 +266,37 @@ class PrimoService < Service
     @base_url+"/primo_library/libweb/action/dlSearch.do?institution=#{@holding_search_institution}&vid=#{@vid}&onCampus=false&query=#{CGI::escape("title,exact,"+@title)}&indx=1&bulkSize=10&group=GUEST"
   end
   protected :deep_link_search_url
+
+  def search(request, skip_id = false)
+    # Get the possible search params
+    @identifier = request.referrer_id
+    @record_id = record_id(request) unless skip_id
+    @isbn = isbn(request)
+    @issn = issn(request)
+    @title = title(request)
+    @author = author(request)
+    @genre = genre(request)
+    # Setup the Primo search object
+    search = Exlibris::Primo::Search.new.base_url!(@base_url).institution!(@institution)
+    # Search if we have a:
+    #   Primo record id OR
+    #   ISBN OR
+    #   ISSN OR
+    #   Title and author and genre
+    if(@record_id.present?)
+      search.record_id! @record_id
+    elsif(@isbn.present?)
+      search.isbn_is @isbn
+    elsif(@issn.present?)
+      search.isbn_is @issn
+    elsif(@title.present? && @author.present? && @genre.present?)
+      search.title_is(@title).creator_is(@author).any_is(@genre)
+    else
+      return nil
+    end
+    search
+  end
+  private :search
 
   # Configure Primo if this is the first time through
   def configure_primo
