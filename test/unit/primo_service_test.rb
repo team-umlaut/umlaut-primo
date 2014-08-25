@@ -201,6 +201,22 @@ class PrimoServiceTest < ActiveSupport::TestCase
     assert_equal(ServiceResponse::MatchExact, view_data[:match_reliability])
   end
 
+  test "expired dedupmgr record" do
+    request = requests(:digital_futures_living_in_a_dot_com_world)
+    VCR.use_cassette("digital_futures_living_in_a_dot_com_world", match_requests_on: [:body]) do
+      @primo_service.handle(request)
+    end
+
+    # Get latest from the DB after handling the service.
+    request.dispatched_services.reset
+    request.service_responses.reset
+
+    # Get the returned fulltext service responses
+    fulltexts = request.get_service_type('fulltext')
+
+    assert_not_empty(fulltexts)
+  end
+
   test "sfx owner but fulltext empty" do
     request = requests(:australian_journal_of_international_affairs_by_id)
     VCR.use_cassette("australian journal of international affairs by id") do
