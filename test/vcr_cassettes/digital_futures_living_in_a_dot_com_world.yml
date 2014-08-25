@@ -1,0 +1,236 @@
+---
+http_interactions:
+- request:
+    method: post
+    uri: http://primo.library.edu/PrimoWebServices/services/searcher
+    body:
+      encoding: US-ASCII
+      string: <?xml version="1.0" encoding="UTF-8"?><env:Envelope xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:wsdl="http://primo.library.edu/PrimoWebServices/services/searcher"
+        xmlns:env="http://schemas.xmlsoap.org/soap/envelope/"><env:Body><wsdl:getRecord><request><![CDATA[<fullViewRequest
+        xmlns="http://www.exlibris.com/primo/xsd/wsRequest" xmlns:uic="http://www.exlibris.com/primo/xsd/primoview/uicomponents"><PrimoSearchRequest
+        xmlns="http://www.exlibris.com/primo/xsd/search/request"><QueryTerms><BoolOpeator>AND</BoolOpeator></QueryTerms><StartIndex>1</StartIndex><BulkSize>5</BulkSize><DidUMeanEnabled>false</DidUMeanEnabled></PrimoSearchRequest><institution>NYU</institution><docId>dedupmrg117418498</docId></fullViewRequest>]]></request></wsdl:getRecord></env:Body></env:Envelope>
+    headers:
+      Soapaction:
+      - ! '"getRecord"'
+      Content-Type:
+      - text/xml;charset=UTF-8
+      Content-Length:
+      - '842'
+      Accept:
+      - ! '*/*'
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Server:
+      - Apache-Coyote/1.1
+      Content-Type:
+      - text/xml;charset=utf-8
+      Transfer-Encoding:
+      - chunked
+      Date:
+      - Mon, 25 Aug 2014 18:09:06 GMT
+    body:
+      encoding: US-ASCII
+      string: ! "<?xml version=\"1.0\" encoding=\"UTF-8\"?><soapenv:Envelope xmlns:soapenv=\"http://schemas.xmlsoap.org/soap/envelope/\"
+        xmlns:xsd=\"http://www.w3.org/2001/XMLSchema\" xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\"><soapenv:Body><ns1:getRecordResponse
+        soapenv:encodingStyle=\"http://schemas.xmlsoap.org/soap/encoding/\" xmlns:ns1=\"http://primo.library.edu/PrimoWebServices/services/searcher\"><getRecordReturn
+        xsi:type=\"soapenc:string\" xmlns:soapenc=\"http://schemas.xmlsoap.org/soap/encoding/\">&lt;SEGMENTS
+        xmlns=&quot;http://www.exlibrisgroup.com/xsd/jaguar/search&quot;&gt;\n  &lt;JAGROOT&gt;\n
+        \   &lt;RESULT&gt;\n      &lt;ERROR CODE=&quot;-1&quot; MESSAGE=&quot;PrimoSearchWS
+        getRecord null&quot;/&gt;\n    &lt;/RESULT&gt;\n  &lt;/JAGROOT&gt;\n&lt;/SEGMENTS&gt;</getRecordReturn></ns1:getRecordResponse></soapenv:Body></soapenv:Envelope>"
+    http_version: 
+  recorded_at: Mon, 25 Aug 2014 18:09:06 GMT
+- request:
+    method: post
+    uri: http://primo.library.edu/PrimoWebServices/services/searcher
+    body:
+      encoding: US-ASCII
+      string: <?xml version="1.0" encoding="UTF-8"?><env:Envelope xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:wsdl="http://primo.library.edu/PrimoWebServices/services/searcher"
+        xmlns:env="http://schemas.xmlsoap.org/soap/envelope/"><env:Body><wsdl:searchBrief><request><![CDATA[<searchRequest
+        xmlns="http://www.exlibris.com/primo/xsd/wsRequest" xmlns:uic="http://www.exlibris.com/primo/xsd/primoview/uicomponents"><PrimoSearchRequest
+        xmlns="http://www.exlibris.com/primo/xsd/search/request"><QueryTerms><BoolOpeator>AND</BoolOpeator><QueryTerm><IndexField>isbn</IndexField><PrecisionOperator>exact</PrecisionOperator><Value>185383789X</Value></QueryTerm></QueryTerms><StartIndex>1</StartIndex><BulkSize>5</BulkSize><DidUMeanEnabled>false</DidUMeanEnabled></PrimoSearchRequest><institution>NYU</institution></searchRequest>]]></request></wsdl:searchBrief></env:Body></env:Envelope>
+    headers:
+      Soapaction:
+      - ! '"searchBrief"'
+      Content-Type:
+      - text/xml;charset=UTF-8
+      Content-Length:
+      - '931'
+      Accept:
+      - ! '*/*'
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Server:
+      - Apache-Coyote/1.1
+      Content-Type:
+      - text/xml;charset=utf-8
+      Transfer-Encoding:
+      - chunked
+      Date:
+      - Mon, 25 Aug 2014 18:09:59 GMT
+    body:
+      encoding: US-ASCII
+      string: ! "<?xml version=\"1.0\" encoding=\"UTF-8\"?><soapenv:Envelope xmlns:soapenv=\"http://schemas.xmlsoap.org/soap/envelope/\"
+        xmlns:xsd=\"http://www.w3.org/2001/XMLSchema\" xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\"><soapenv:Body><ns1:searchBriefResponse
+        soapenv:encodingStyle=\"http://schemas.xmlsoap.org/soap/encoding/\" xmlns:ns1=\"http://primo.library.edu/PrimoWebServices/services/searcher\"><searchBriefReturn
+        xsi:type=\"soapenc:string\" xmlns:soapenc=\"http://schemas.xmlsoap.org/soap/encoding/\">&lt;sear:SEGMENTS
+        xmlns:sear=&quot;http://www.exlibrisgroup.com/xsd/jaguar/search&quot;&gt;&lt;sear:JAGROOT&gt;&lt;sear:RESULT&gt;&lt;sear:QUERYTRANSFORMS/&gt;&lt;sear:FACETLIST
+        ACCURATE_COUNTERS=&quot;true&quot;&gt;&lt;sear:FACET NAME=&quot;creator&quot;
+        COUNT=&quot;3&quot;&gt;&lt;sear:FACET_VALUES KEY=&quot;Digital Futures (Project)&quot;
+        VALUE=&quot;1&quot;/&gt;&lt;sear:FACET_VALUES KEY=&quot;Wilsdon, J&quot; VALUE=&quot;1&quot;/&gt;&lt;sear:FACET_VALUES
+        KEY=&quot;Forum for the Future (Organization)&quot; VALUE=&quot;1&quot;/&gt;&lt;/sear:FACET&gt;&lt;sear:FACET
+        NAME=&quot;lcc&quot; COUNT=&quot;1&quot;&gt;&lt;sear:FACET_VALUES KEY=&quot;H
+        - Social sciences.&quot; VALUE=&quot;1&quot;/&gt;&lt;/sear:FACET&gt;&lt;sear:FACET
+        NAME=&quot;lang&quot; COUNT=&quot;1&quot;&gt;&lt;sear:FACET_VALUES KEY=&quot;eng&quot;
+        VALUE=&quot;1&quot;/&gt;&lt;/sear:FACET&gt;&lt;sear:FACET NAME=&quot;rtype&quot;
+        COUNT=&quot;1&quot;&gt;&lt;sear:FACET_VALUES KEY=&quot;books&quot; VALUE=&quot;1&quot;/&gt;&lt;/sear:FACET&gt;&lt;sear:FACET
+        NAME=&quot;topic&quot; COUNT=&quot;2&quot;&gt;&lt;sear:FACET_VALUES KEY=&quot;Information
+        superhighway&quot; VALUE=&quot;1&quot;/&gt;&lt;sear:FACET_VALUES KEY=&quot;Electronic
+        commerce&quot; VALUE=&quot;1&quot;/&gt;&lt;/sear:FACET&gt;&lt;sear:FACET NAME=&quot;tlevel&quot;
+        COUNT=&quot;2&quot;&gt;&lt;sear:FACET_VALUES KEY=&quot;online_resources&quot;
+        VALUE=&quot;1&quot;/&gt;&lt;sear:FACET_VALUES KEY=&quot;available&quot; VALUE=&quot;1&quot;/&gt;&lt;/sear:FACET&gt;&lt;sear:FACET
+        NAME=&quot;pfilter&quot; COUNT=&quot;1&quot;&gt;&lt;sear:FACET_VALUES KEY=&quot;books&quot;
+        VALUE=&quot;1&quot;/&gt;&lt;/sear:FACET&gt;&lt;sear:FACET NAME=&quot;creationdate&quot;
+        COUNT=&quot;1&quot;&gt;&lt;sear:FACET_VALUES KEY=&quot;2001&quot; VALUE=&quot;1&quot;/&gt;&lt;/sear:FACET&gt;&lt;sear:FACET
+        NAME=&quot;domain&quot; COUNT=&quot;2&quot;&gt;&lt;sear:FACET_VALUES KEY=&quot;TWEB&quot;
+        VALUE=&quot;1&quot;/&gt;&lt;sear:FACET_VALUES KEY=&quot;TNSFO&quot; VALUE=&quot;1&quot;/&gt;&lt;/sear:FACET&gt;&lt;sear:FACET
+        NAME=&quot;genre&quot; COUNT=&quot;1&quot;&gt;&lt;sear:FACET_VALUES KEY=&quot;Electronic
+        books&quot; VALUE=&quot;1&quot;/&gt;&lt;/sear:FACET&gt;&lt;sear:FACET NAME=&quot;library&quot;
+        COUNT=&quot;10&quot;&gt;&lt;sear:FACET_VALUES KEY=&quot;NSKE&quot; VALUE=&quot;1&quot;/&gt;&lt;sear:FACET_VALUES
+        KEY=&quot;ISAW&quot; VALUE=&quot;1&quot;/&gt;&lt;sear:FACET_VALUES KEY=&quot;NSGI&quot;
+        VALUE=&quot;1&quot;/&gt;&lt;sear:FACET_VALUES KEY=&quot;BOBST&quot; VALUE=&quot;1&quot;/&gt;&lt;sear:FACET_VALUES
+        KEY=&quot;NSFO&quot; VALUE=&quot;1&quot;/&gt;&lt;sear:FACET_VALUES KEY=&quot;REI&quot;
+        VALUE=&quot;1&quot;/&gt;&lt;sear:FACET_VALUES KEY=&quot;NSSC&quot; VALUE=&quot;1&quot;/&gt;&lt;sear:FACET_VALUES
+        KEY=&quot;IFAC&quot; VALUE=&quot;1&quot;/&gt;&lt;sear:FACET_VALUES KEY=&quot;IFA&quot;
+        VALUE=&quot;1&quot;/&gt;&lt;sear:FACET_VALUES KEY=&quot;COUR&quot; VALUE=&quot;1&quot;/&gt;&lt;/sear:FACET&gt;&lt;sear:FACET
+        NAME=&quot;local1&quot; COUNT=&quot;2&quot;&gt;&lt;sear:FACET_VALUES KEY=&quot;Main
+        Collection&quot; VALUE=&quot;1&quot;/&gt;&lt;sear:FACET_VALUES KEY=&quot;Internet
+        Resources&quot; VALUE=&quot;1&quot;/&gt;&lt;/sear:FACET&gt;&lt;/sear:FACETLIST&gt;&lt;sear:DOCSET
+        HIT_TIME=&quot;39&quot; TOTALHITS=&quot;1&quot; FIRSTHIT=&quot;1&quot; LASTHIT=&quot;1&quot;
+        TOTAL_TIME=&quot;47&quot; IS_LOCAL=&quot;true&quot;&gt;&lt;sear:DOC ID=&quot;3422274&quot;
+        RANK=&quot;1.0&quot; NO=&quot;1&quot; SEARCH_ENGINE=&quot;Local Search Engine&quot;
+        SEARCH_ENGINE_TYPE=&quot;Local Search Engine&quot;&gt;&lt;PrimoNMBib xmlns=&quot;http://www.exlibrisgroup.com/xsd/primo/primo_nm_bib&quot;&gt;\n&lt;record&gt;\n&lt;control&gt;\n
+        \n \n \n \n \n \n \n&lt;sourcerecordid&gt;$$V003175055$$Onyu_aleph003175055&lt;/sourcerecordid&gt;&lt;sourcerecordid&gt;$$V000782964$$Onyu_aleph000782964&lt;/sourcerecordid&gt;&lt;sourceid&gt;$$Vnyu_aleph$$Onyu_aleph003175055&lt;/sourceid&gt;&lt;sourceid&gt;$$Vnyu_aleph$$Onyu_aleph000782964&lt;/sourceid&gt;&lt;recordid&gt;dedupmrg38714743&lt;/recordid&gt;&lt;originalsourceid&gt;$$VLIB01$$Onyu_aleph003175055&lt;/originalsourceid&gt;&lt;originalsourceid&gt;$$VLIB01$$Onyu_aleph000782964&lt;/originalsourceid&gt;&lt;sourceformat&gt;$$VMARC21$$Onyu_aleph003175055&lt;/sourceformat&gt;&lt;sourceformat&gt;$$VMARC21$$Onyu_aleph000782964&lt;/sourceformat&gt;&lt;sourcesystem&gt;$$VAleph$$Onyu_aleph003175055&lt;/sourcesystem&gt;&lt;sourcesystem&gt;$$VAleph$$Onyu_aleph000782964&lt;/sourcesystem&gt;&lt;ilsapiid&gt;$$VLIB01003175055$$Onyu_aleph003175055&lt;/ilsapiid&gt;&lt;ilsapiid&gt;$$VLIB01000782964$$Onyu_aleph000782964&lt;/ilsapiid&gt;&lt;/control&gt;\n&lt;display&gt;\n&lt;type&gt;book&lt;/type&gt;
+        \n&lt;title&gt;Digital futures living in a dot-com world&lt;/title&gt; \n&lt;contributor&gt;James
+        Wilsdon 1973-; Forum for the Future (Organization); Digital Futures (Project)&lt;/contributor&gt;
+        \n&lt;publisher&gt;London ; Sterling, VA : Earthscan Publications&lt;/publisher&gt;
+        \n&lt;creationdate&gt;2001&lt;/creationdate&gt; \n&lt;format&gt;xx, 228 p.
+        : ill.&lt;/format&gt; \n&lt;subject&gt;Electronic commerce -- Great Britain;
+        Information superhighway; Electronic books&lt;/subject&gt; \n&lt;language&gt;eng&lt;/language&gt;
+        \n \n&lt;rights&gt;Access is restricted to users affiliated with licensed
+        institutions.&lt;/rights&gt; \n \n \n \n \n \n \n \n&lt;source&gt;$$Vnyu_aleph$$Onyu_aleph003175055&lt;/source&gt;&lt;source&gt;$$Vnyu_aleph$$Onyu_aleph000782964&lt;/source&gt;&lt;availlibrary&gt;$$INYU$$LBWEB$$1Internet
+        Resources$$2(HF5548.325.G7 D54 2001eb Electronic access )$$Scheck_holdings$$XNYU50$$YBWEB$$ZBNYUI$$Onyu_aleph003175055&lt;/availlibrary&gt;&lt;availlibrary&gt;$$INS$$LTWEB$$1Internet
+        Resources$$2(HF5548.325.G7 D54 2001eb Electronic access )$$Scheck_holdings$$XNYU50$$YTWEB$$ZTNSI$$Onyu_aleph003175055&lt;/availlibrary&gt;&lt;availlibrary&gt;$$INS$$LNSFO$$1Main
+        Collection$$2(HF5548.325.G7 D54 2001 )$$Sunavailable$$31$$41$$5N$$64$$XNYU50$$YTNSFO$$ZMAIN$$Onyu_aleph000782964&lt;/availlibrary&gt;&lt;availinstitution&gt;$$INYU$$Scheck_holdings&lt;/availinstitution&gt;&lt;availinstitution&gt;$$INS$$Scheck_holdings&lt;/availinstitution&gt;&lt;availpnx&gt;available&lt;/availpnx&gt;&lt;lds01&gt;NYU&lt;/lds01&gt;&lt;lds01&gt;NS&lt;/lds01&gt;&lt;lds01&gt;NYUAD&lt;/lds01&gt;&lt;lds01&gt;NYUSH&lt;/lds01&gt;&lt;lds01&gt;NS&lt;/lds01&gt;&lt;lds02&gt;nyu_aleph003175055&lt;/lds02&gt;&lt;lds02&gt;nyu_aleph000782964&lt;/lds02&gt;&lt;/display&gt;\n&lt;links&gt;\n
+        \n \n \n \n \n \n \n \n \n \n&lt;linktoholdings&gt;$$V$$Taleph_holdings$$Onyu_aleph003175055&lt;/linktoholdings&gt;&lt;linktoholdings&gt;$$V$$Taleph_holdings$$Onyu_aleph000782964&lt;/linktoholdings&gt;&lt;backlink&gt;$$V$$Taleph_backlink$$DMore
+        bibliographic information$$Onyu_aleph003175055&lt;/backlink&gt;&lt;backlink&gt;$$V$$Taleph_backlink$$DMore
+        bibliographic information$$Onyu_aleph000782964&lt;/backlink&gt;&lt;linktorsrc&gt;$$Uhttp://site.ebrary.com/lib/newschool/Doc?id=10128868$$DOnline
+        Version&lt;/linktorsrc&gt;&lt;linktorsrc&gt;$$Uhttps://ezproxy.library.nyu.edu/login?url=http://site.ebrary.com/lib/nyulibrary/Doc?id=10128868$$DOnline
+        Version$$INYU&lt;/linktorsrc&gt;&lt;linktorsrc&gt;$$Uhttps://ezproxy.library.nyu.edu/login?url=http://site.ebrary.com/lib/nyulibrary/Doc?id=10128868$$DOnline
+        Resource$$INYUAD&lt;/linktorsrc&gt;&lt;linktorsrc&gt;$$Uhttps://ezproxy.library.nyu.edu/login?url=http://site.ebrary.com/lib/nyulibrary/Doc?id=10128868$$DOnline
+        Resource$$INYUSH&lt;/linktorsrc&gt;&lt;linktorsrc&gt;$$Uhttps://login.libproxy.newschool.edu/login?url=http://site.ebrary.com/lib/newschool/Doc?id=10128868$$DOnline
+        Version$$INS&lt;/linktorsrc&gt;&lt;openurl&gt;$$V$$Topenurl_journal$$Onyu_aleph003175055&lt;/openurl&gt;&lt;openurl&gt;$$V$$Topenurl_journal$$Onyu_aleph000782964&lt;/openurl&gt;&lt;openurlfulltext&gt;$$V$$Topenurlfull_journal$$Onyu_aleph003175055&lt;/openurlfulltext&gt;&lt;openurlfulltext&gt;$$V$$Topenurlfull_journal$$Onyu_aleph000782964&lt;/openurlfulltext&gt;&lt;linktotoc&gt;$$Tamazon_toc$$DCheck
+        for Amazon Search Inside&lt;/linktotoc&gt;&lt;linktoexcerpt&gt;$$Tsyndetics_excerpt$$DExcerpt
+        from item&lt;/linktoexcerpt&gt;&lt;linktoreview&gt;$$TpersistentUrl$$DCopy
+        item link&lt;/linktoreview&gt;&lt;linktouc&gt;$$Tamazon_uc$$DCheck Amazon&lt;/linktouc&gt;&lt;linktouc&gt;$$Tworldcat_isbn$$DCheck
+        other libraries (WorldCat&#xAE;)&lt;/linktouc&gt;&lt;thumbnail&gt;$$Tamazon_thumb&lt;/thumbnail&gt;&lt;/links&gt;\n&lt;search&gt;&lt;creatorcontrib&gt;Mellon
+        Project.&lt;/creatorcontrib&gt;&lt;creatorcontrib&gt;ebrary, Inc.&lt;/creatorcontrib&gt;&lt;title&gt;Digital
+        futures living in a dot-com world /&lt;/title&gt;&lt;subject&gt;Information
+        superhighway&lt;/subject&gt;&lt;subject&gt;Electronic books&lt;/subject&gt;&lt;subject&gt;Digital
+        highway&lt;/subject&gt;&lt;subject&gt;Superhighway, Information&lt;/subject&gt;&lt;subject&gt;Information
+        highway&lt;/subject&gt;&lt;subject&gt;Data highway&lt;/subject&gt;&lt;subject&gt;I-way
+        (Information superhighway)&lt;/subject&gt;&lt;subject&gt;Global information
+        infrastructure&lt;/subject&gt;&lt;subject&gt;Infrastructure, Information&lt;/subject&gt;&lt;subject&gt;National
+        information infrastructure&lt;/subject&gt;&lt;subject&gt;Data superhighway&lt;/subject&gt;&lt;subject&gt;Electronic
+        superhighway&lt;/subject&gt;&lt;subject&gt;Infobahn&lt;/subject&gt;&lt;subject&gt;Infopike&lt;/subject&gt;&lt;subject&gt;Information
+        infrastructure&lt;/subject&gt;&lt;general&gt;[electronic resource] :&lt;/general&gt;&lt;recordid&gt;nyu_aleph003175055&lt;/recordid&gt;&lt;searchscope&gt;BWEB&lt;/searchscope&gt;&lt;searchscope&gt;BWEB
+        Internet Resources&lt;/searchscope&gt;&lt;searchscope&gt;TWEB&lt;/searchscope&gt;&lt;searchscope&gt;TWEB
+        Internet Resources&lt;/searchscope&gt;&lt;searchscope&gt;NYU&lt;/searchscope&gt;&lt;searchscope&gt;NYUAD&lt;/searchscope&gt;&lt;searchscope&gt;NYUSH&lt;/searchscope&gt;&lt;searchscope&gt;BOBST&lt;/searchscope&gt;&lt;searchscope&gt;IFA&lt;/searchscope&gt;&lt;searchscope&gt;IFAC&lt;/searchscope&gt;&lt;searchscope&gt;ISAW&lt;/searchscope&gt;&lt;searchscope&gt;COUR&lt;/searchscope&gt;&lt;searchscope&gt;REI&lt;/searchscope&gt;&lt;searchscope&gt;NSSC&lt;/searchscope&gt;&lt;searchscope&gt;NSGI&lt;/searchscope&gt;&lt;searchscope&gt;NSKE&lt;/searchscope&gt;&lt;scope&gt;BWEB&lt;/scope&gt;&lt;scope&gt;BWEB
+        Internet Resources&lt;/scope&gt;&lt;scope&gt;TWEB&lt;/scope&gt;&lt;scope&gt;TWEB
+        Internet Resources&lt;/scope&gt;&lt;scope&gt;NYU&lt;/scope&gt;&lt;scope&gt;NYUAD&lt;/scope&gt;&lt;scope&gt;NYUSH&lt;/scope&gt;&lt;scope&gt;BOBST&lt;/scope&gt;&lt;scope&gt;IFA&lt;/scope&gt;&lt;scope&gt;IFAC&lt;/scope&gt;&lt;scope&gt;ISAW&lt;/scope&gt;&lt;scope&gt;COUR&lt;/scope&gt;&lt;scope&gt;REI&lt;/scope&gt;&lt;scope&gt;NSSC&lt;/scope&gt;&lt;scope&gt;NSGI&lt;/scope&gt;&lt;scope&gt;NSKE&lt;/scope&gt;&lt;lsr01&gt;HF5548.325.G7
+        D54 2001eb&lt;/lsr01&gt;&lt;lsr01&gt;HF5548 .325 .G7 D54 2001eb&lt;/lsr01&gt;&lt;creatorcontrib&gt;edited
+        by James Wilsdon.&lt;/creatorcontrib&gt;&lt;creatorcontrib&gt;James,  Wilsdon
+        \ 1973-&lt;/creatorcontrib&gt;&lt;creatorcontrib&gt;Wilsdon, J&lt;/creatorcontrib&gt;&lt;creatorcontrib&gt;Forum
+        for the Future (Organization)&lt;/creatorcontrib&gt;&lt;creatorcontrib&gt;Digital
+        Futures (Project)&lt;/creatorcontrib&gt;&lt;title&gt;Digital futures : living
+        in a dot-com world /&lt;/title&gt;&lt;subject&gt;Electronic commerce  Great
+        Britain&lt;/subject&gt;&lt;subject&gt;Electronic business&lt;/subject&gt;&lt;subject&gt;E-commerce&lt;/subject&gt;&lt;subject&gt;E-business&lt;/subject&gt;&lt;subject&gt;Internet
+        commerce&lt;/subject&gt;&lt;subject&gt;Internet retailing&lt;/subject&gt;&lt;subject&gt;Web
+        retailing&lt;/subject&gt;&lt;subject&gt;Online commerce&lt;/subject&gt;&lt;subject&gt;eCommerce&lt;/subject&gt;&lt;subject&gt;eBusiness&lt;/subject&gt;&lt;subject&gt;E-tailing&lt;/subject&gt;&lt;subject&gt;Cybercommerce&lt;/subject&gt;&lt;general&gt;Earthscan
+        Publications,&lt;/general&gt;&lt;general&gt;&quot;Forum for the Future.&quot;&lt;/general&gt;&lt;general&gt;A
+        product of the Digital Futures project set up by Forum for the Future.&lt;/general&gt;&lt;sourceid&gt;nyu_aleph&lt;/sourceid&gt;&lt;recordid&gt;nyu_aleph000782964&lt;/recordid&gt;&lt;isbn&gt;185383789X&lt;/isbn&gt;&lt;isbn&gt;9781853837890&lt;/isbn&gt;&lt;toc&gt;Introduction
+        : Digital futures : an agenda for a sustainable digital economy / James Wilsdon
+        and Paul Miller -- Mind over matter : greening the new economy / Charles Leadbeater
+        and Rebecca Willis ; Response / Evan Davis -- E-topia? Scenarios for e-commerce
+        and sustainability / Malcolm Eames ... [et al.] ; Response / Amory Lovins
+        -- Dot-com ethics : e-business and sustainability / James Wilsdon ; Response
+        / John Browning -- Surfing alone? E-commerce and social capital / Ben Jupp
+        and Tom Bentley ; Response / Madeleine Bunting -- Sink or surf? Social inclusion
+        in the digital age / Alex MacGillivray and David Boyle ; Response / Kevin
+        Carey -- Towards the sustainable e-region / Ian Christie and Mark Hepworth
+        ; Response / Jim Norton -- Virtual traffic : e-commerce, transport and distribution
+        / Peter James and Peter Hopkinson ; Response / Stephen Joseph and Tara Garnett
+        -- Bricks versus clicks : planning for the digital economy / Simon Marvin,
+        Andrew Gillespie and Nick Green ; Response / Peter Hall.&lt;/toc&gt;&lt;rsrctype&gt;book&lt;/rsrctype&gt;&lt;creationdate&gt;2001&lt;/creationdate&gt;&lt;searchscope&gt;TNSFO&lt;/searchscope&gt;&lt;searchscope&gt;TNSFO
+        Main Collection&lt;/searchscope&gt;&lt;searchscope&gt;nyu_aleph&lt;/searchscope&gt;&lt;searchscope&gt;NS&lt;/searchscope&gt;&lt;searchscope&gt;NSFO&lt;/searchscope&gt;&lt;scope&gt;TNSFO&lt;/scope&gt;&lt;scope&gt;TNSFO
+        Main Collection&lt;/scope&gt;&lt;scope&gt;nyu_aleph&lt;/scope&gt;&lt;scope&gt;NS&lt;/scope&gt;&lt;scope&gt;NSFO&lt;/scope&gt;&lt;alttitle&gt;Living
+        in a dot-com world&lt;/alttitle&gt;&lt;alttitle&gt;dot-com world&lt;/alttitle&gt;&lt;lsr01&gt;HF5548.325.G7
+        D54 2001&lt;/lsr01&gt;&lt;lsr01&gt;HF5548 .325 .G7 D54 2001&lt;/lsr01&gt;&lt;lsr02&gt;Earthscan
+        Publications,&lt;/lsr02&gt;&lt;/search&gt;\n&lt;sort&gt;\n&lt;title&gt;Digital
+        futures living in a dot-com world /&lt;/title&gt; \n&lt;creationdate&gt;2001&lt;/creationdate&gt;
+        \n&lt;author&gt;Wilsdon, James, 1973-&lt;/author&gt; \n&lt;lso01&gt;2001&lt;/lso01&gt;
+        \n&lt;/sort&gt;\n&lt;facets&gt;&lt;topic&gt;Information superhighway&lt;/topic&gt;&lt;collection&gt;TWEB&lt;/collection&gt;&lt;toplevel&gt;available&lt;/toplevel&gt;&lt;toplevel&gt;online_resources&lt;/toplevel&gt;&lt;genre&gt;Electronic
+        books&lt;/genre&gt;&lt;library&gt;BOBST&lt;/library&gt;&lt;library&gt;IFA&lt;/library&gt;&lt;library&gt;IFAC&lt;/library&gt;&lt;library&gt;ISAW&lt;/library&gt;&lt;library&gt;COUR&lt;/library&gt;&lt;library&gt;REI&lt;/library&gt;&lt;library&gt;NSSC&lt;/library&gt;&lt;library&gt;NSGI&lt;/library&gt;&lt;library&gt;NSKE&lt;/library&gt;&lt;lfc01&gt;Internet
+        Resources&lt;/lfc01&gt;&lt;language&gt;eng&lt;/language&gt;&lt;creationdate&gt;2001&lt;/creationdate&gt;&lt;topic&gt;Electronic
+        commerce&#x2013;Great Britain&lt;/topic&gt;&lt;collection&gt;TNSFO&lt;/collection&gt;&lt;prefilter&gt;books&lt;/prefilter&gt;&lt;rsrctype&gt;books&lt;/rsrctype&gt;&lt;creatorcontrib&gt;Wilsdon,
+        J&lt;/creatorcontrib&gt;&lt;creatorcontrib&gt;Forum for the Future (Organization)&lt;/creatorcontrib&gt;&lt;creatorcontrib&gt;Digital
+        Futures (Project)&lt;/creatorcontrib&gt;&lt;library&gt;NSFO&lt;/library&gt;&lt;lfc01&gt;Main
+        Collection&lt;/lfc01&gt;&lt;classificationlcc&gt;H - Social sciences.&#x2013;Commerce&lt;/classificationlcc&gt;&lt;frbrgroupid&gt;41605070&lt;/frbrgroupid&gt;&lt;frbrtype&gt;6&lt;/frbrtype&gt;&lt;/facets&gt;\n&lt;dedup&gt;\n&lt;t&gt;1&lt;/t&gt;
+        \n&lt;c1&gt;2001023220&lt;/c1&gt; \n&lt;c2&gt;185383789X;9781853837890&lt;/c2&gt;
+        \n&lt;c3&gt;digitalfutureslivingotcomworld&lt;/c3&gt; \n&lt;c4&gt;2001&lt;/c4&gt;
+        \n&lt;f2&gt;2001023220&lt;/f2&gt; \n&lt;f4&gt;185383789X;9781853837890&lt;/f4&gt;
+        \n&lt;f5&gt;digitalfutureslivinginadotcomworld&lt;/f5&gt; \n&lt;f6&gt;2001&lt;/f6&gt;
+        \n&lt;f7&gt;digital futures living in a dot com world&lt;/f7&gt; \n&lt;f8&gt;enk&lt;/f8&gt;
+        \n&lt;f9&gt;xx, 228 p. :&lt;/f9&gt; \n&lt;f10&gt;earthscan publications&lt;/f10&gt;
+        \n&lt;/dedup&gt;\n&lt;frbr&gt;&lt;t&gt;1&lt;/t&gt;&lt;k1&gt;$$Kwilsdon james
+        1973$$AA&lt;/k1&gt;&lt;k1&gt;$$Kforum for the future organization$$AA&lt;/k1&gt;&lt;k1&gt;$$Kdigital
+        futures project$$AA&lt;/k1&gt;&lt;k3&gt;$$Kbookdigital futures living in a
+        dot com world$$AT&lt;/k3&gt;&lt;/frbr&gt;\n&lt;delivery&gt;&lt;institution&gt;$$VNYU$$Onyu_aleph003175055&lt;/institution&gt;&lt;institution&gt;$$VNS$$Onyu_aleph003175055&lt;/institution&gt;&lt;institution&gt;$$VNYUAD$$Onyu_aleph003175055&lt;/institution&gt;&lt;institution&gt;$$VNYUSH$$Onyu_aleph003175055&lt;/institution&gt;&lt;delcategory&gt;$$VOnline
+        Resource$$Onyu_aleph003175055&lt;/delcategory&gt;&lt;institution&gt;$$VNS$$Onyu_aleph000782964&lt;/institution&gt;&lt;delcategory&gt;$$VPhysical
+        Item$$Onyu_aleph000782964&lt;/delcategory&gt;&lt;/delivery&gt;\n&lt;enrichment&gt;\n&lt;classificationlcc&gt;HF5548.325.G7&lt;/classificationlcc&gt;
+        \n&lt;/enrichment&gt;\n&lt;ranking&gt;\n&lt;booster1&gt;1&lt;/booster1&gt;
+        \n&lt;booster2&gt;1&lt;/booster2&gt; \n&lt;/ranking&gt;\n&lt;addata&gt;&lt;btitle&gt;Digital
+        futures living in a dot-com world&lt;/btitle&gt;&lt;lad01&gt;BWEBTWEB&lt;/lad01&gt;&lt;lad01&gt;Online
+        Resource&lt;/lad01&gt;&lt;aulast&gt;Wilsdon&lt;/aulast&gt;&lt;aufirst&gt;James,&lt;/aufirst&gt;&lt;addau&gt;Wilsdon,
+        James, 1973-&lt;/addau&gt;&lt;addau&gt;Forum for the Future (Organization)&lt;/addau&gt;&lt;addau&gt;Digital
+        Futures (Project)&lt;/addau&gt;&lt;btitle&gt;Digital futures : living in a
+        dot-com world&lt;/btitle&gt;&lt;addtitle&gt;Living in a dot-com world&lt;/addtitle&gt;&lt;date&gt;2001&lt;/date&gt;&lt;risdate&gt;2001.&lt;/risdate&gt;&lt;isbn&gt;185383789X&lt;/isbn&gt;&lt;isbn&gt;9781853837890&lt;/isbn&gt;&lt;format&gt;book&lt;/format&gt;&lt;genre&gt;book&lt;/genre&gt;&lt;ristype&gt;BOOK&lt;/ristype&gt;&lt;notes&gt;Includes
+        bibliographical references and index.&lt;/notes&gt;&lt;cop&gt;London %3B Sterling,
+        VA&lt;/cop&gt;&lt;pub&gt;Earthscan Publications&lt;/pub&gt;&lt;oclcid&gt;45871198&lt;/oclcid&gt;&lt;lccn&gt;2001023220&lt;/lccn&gt;&lt;lad01&gt;TNSFO&lt;/lad01&gt;&lt;lad01&gt;Physical
+        Item&lt;/lad01&gt;&lt;/addata&gt;\n&lt;browse/&gt;&lt;/record&gt;&lt;/PrimoNMBib&gt;&lt;sear:GETIT
+        deliveryCategory=&quot;Online Resource&quot; GetIt1=&quot;http://site.ebrary.com/lib/newschool/Doc?id=10128868&quot;
+        GetIt2=&quot;https://getit.library.nyu.edu/resolve?&amp;amp;ctx_ver=Z39.88-2004&amp;amp;ctx_enc=info:ofi/enc:UTF-8&amp;amp;ctx_tim=2014-08-25T14%3A10%3A00IST&amp;amp;url_ver=Z39.88-2004&amp;amp;url_ctx_fmt=infofi/fmt:kev:mtx:ctx&amp;amp;rfr_id=info:sid/primo.exlibrisgroup.com:primo-dedupmrg38714743&amp;amp;rft_val_fmt=info:ofi/fmt:kev:mtx:book&amp;amp;rft.genre=book&amp;amp;rft.jtitle=&amp;amp;rft.btitle=Digital%20futures%20living%20in%20a%20dot-com%20world&amp;amp;rft.aulast=Wilsdon&amp;amp;rft.aufirst=James%2C&amp;amp;rft.auinit=&amp;amp;rft.auinit1=&amp;amp;rft.auinitm=&amp;amp;rft.ausuffix=&amp;amp;rft.au=&amp;amp;rft.aucorp=&amp;amp;rft.volume=&amp;amp;rft.issue=&amp;amp;rft.part=&amp;amp;rft.quarter=&amp;amp;rft.ssn=&amp;amp;rft.spage=&amp;amp;rft.epage=&amp;amp;rft.pages=&amp;amp;rft.artnum=&amp;amp;rft.pub=Earthscan%20Publications&amp;amp;rft.place=London%20%253B%20Sterling%2C%20VA&amp;amp;rft.issn=&amp;amp;rft.eissn=&amp;amp;rft.isbn=185383789X&amp;amp;rft.sici=&amp;amp;rft.coden=&amp;amp;rft_id=info:doi/&amp;amp;rft.object_id=&amp;amp;rft.primo=dedupmrg38714743&amp;amp;rft.eisbn=&amp;amp;rft_dat=&amp;lt;nyu_aleph&gt;003175055&amp;lt;/nyu_aleph&gt;&amp;lt;grp_id&gt;41605070&amp;lt;/grp_id&gt;&amp;lt;oa&gt;&amp;lt;/oa&gt;&amp;amp;rft_id=info:oai/&amp;amp;req.language=&quot;/&gt;&lt;sear:GETIT
+        deliveryCategory=&quot;Online Resource&quot; GetIt1=&quot;https://ezproxy.library.nyu.edu/login?url=http://site.ebrary.com/lib/nyulibrary/Doc?id=10128868&quot;
+        GetIt2=&quot;&quot;/&gt;&lt;sear:GETIT deliveryCategory=&quot;Physical Item&quot;
+        GetIt1=&quot;http://aleph.library.nyu.edu/F?func=item-global&amp;amp;doc_library=LIB01&amp;amp;local_base=PRIMOCOMMON&amp;amp;doc_number=003175055&quot;
+        GetIt2=&quot;&quot;/&gt;&lt;sear:LIBRARIES&gt;&lt;sear:LIBRARY&gt;&lt;sear:institution&gt;NS&lt;/sear:institution&gt;&lt;sear:library&gt;NSFO&lt;/sear:library&gt;&lt;sear:status&gt;unavailable&lt;/sear:status&gt;&lt;sear:collection&gt;Main
+        Collection&lt;/sear:collection&gt;&lt;sear:callNumber&gt;(HF5548.325.G7 D54
+        2001 )&lt;/sear:callNumber&gt;&lt;sear:url&gt;http://aleph.library.nyu.edu/F?func=item-global&amp;amp;doc_library=LIB01&amp;amp;local_base=PRIMOCOMMON&amp;amp;doc_number=000782964&lt;/sear:url&gt;&lt;/sear:LIBRARY&gt;&lt;/sear:LIBRARIES&gt;&lt;sear:LIBRARIES&gt;&lt;sear:LIBRARY&gt;&lt;sear:institution&gt;NYU&lt;/sear:institution&gt;&lt;sear:library&gt;BWEB&lt;/sear:library&gt;&lt;sear:status&gt;check_holdings&lt;/sear:status&gt;&lt;sear:collection&gt;Internet
+        Resources&lt;/sear:collection&gt;&lt;sear:callNumber&gt;(HF5548.325.G7 D54
+        2001eb Electronic access )&lt;/sear:callNumber&gt;&lt;sear:url&gt;http://aleph.library.nyu.edu/F?func=item-global&amp;amp;doc_library=LIB01&amp;amp;local_base=PRIMOCOMMON&amp;amp;doc_number=003175055&lt;/sear:url&gt;&lt;/sear:LIBRARY&gt;&lt;sear:LIBRARY&gt;&lt;sear:institution&gt;NS&lt;/sear:institution&gt;&lt;sear:library&gt;TWEB&lt;/sear:library&gt;&lt;sear:status&gt;check_holdings&lt;/sear:status&gt;&lt;sear:collection&gt;Internet
+        Resources&lt;/sear:collection&gt;&lt;sear:callNumber&gt;(HF5548.325.G7 D54
+        2001eb Electronic access )&lt;/sear:callNumber&gt;&lt;sear:url&gt;http://aleph.library.nyu.edu/F?func=item-global&amp;amp;doc_library=LIB01&amp;amp;local_base=PRIMOCOMMON&amp;amp;doc_number=003175055&lt;/sear:url&gt;&lt;/sear:LIBRARY&gt;&lt;/sear:LIBRARIES&gt;&lt;sear:LINKS&gt;&lt;sear:openurl&gt;&lt;![CDATA[https://getit.library.nyu.edu/resolve?&amp;ctx_ver=Z39.88-2004&amp;ctx_enc=info:ofi/enc:UTF-8&amp;ctx_tim=2014-08-25T14%3A10%3A00IST&amp;url_ver=Z39.88-2004&amp;url_ctx_fmt=infofi/fmt:kev:mtx:ctx&amp;rfr_id=info:sid/primo.exlibrisgroup.com:primo-dedupmrg38714743&amp;rft_val_fmt=info:ofi/fmt:kev:mtx:book&amp;rft.genre=book&amp;rft.jtitle=&amp;rft.btitle=Digital%20futures%20living%20in%20a%20dot-com%20world&amp;rft.aulast=Wilsdon&amp;rft.aufirst=James%2C&amp;rft.auinit=&amp;rft.auinit1=&amp;rft.auinitm=&amp;rft.ausuffix=&amp;rft.au=&amp;rft.aucorp=&amp;rft.volume=&amp;rft.issue=&amp;rft.part=&amp;rft.quarter=&amp;rft.ssn=&amp;rft.spage=&amp;rft.epage=&amp;rft.pages=&amp;rft.artnum=&amp;rft.pub=Earthscan%20Publications&amp;rft.place=London%20%253B%20Sterling%2C%20VA&amp;rft.issn=&amp;rft.eissn=&amp;rft.isbn=185383789X&amp;rft.sici=&amp;rft.coden=&amp;rft_id=info:doi/&amp;rft.object_id=&amp;rft.primo=dedupmrg38714743&amp;rft.eisbn=&amp;rft_dat=&lt;nyu_aleph&gt;003175055&lt;/nyu_aleph&gt;&lt;grp_id&gt;41605070&lt;/grp_id&gt;&lt;oa&gt;&lt;/oa&gt;&amp;rft_id=info:oai/&amp;req.language=]]&gt;&lt;/sear:openurl&gt;&lt;sear:openurl&gt;&lt;![CDATA[https://getit.library.nyu.edu/resolve?&amp;ctx_ver=Z39.88-2004&amp;ctx_enc=info:ofi/enc:UTF-8&amp;ctx_tim=2014-08-25T14%3A10%3A00IST&amp;url_ver=Z39.88-2004&amp;url_ctx_fmt=infofi/fmt:kev:mtx:ctx&amp;rfr_id=info:sid/primo.exlibrisgroup.com:primo-dedupmrg38714743&amp;rft_val_fmt=info:ofi/fmt:kev:mtx:book&amp;rft.genre=book&amp;rft.jtitle=&amp;rft.btitle=Digital%20futures%20living%20in%20a%20dot-com%20world&amp;rft.aulast=Wilsdon&amp;rft.aufirst=James%2C&amp;rft.auinit=&amp;rft.auinit1=&amp;rft.auinitm=&amp;rft.ausuffix=&amp;rft.au=&amp;rft.aucorp=&amp;rft.volume=&amp;rft.issue=&amp;rft.part=&amp;rft.quarter=&amp;rft.ssn=&amp;rft.spage=&amp;rft.epage=&amp;rft.pages=&amp;rft.artnum=&amp;rft.pub=Earthscan%20Publications&amp;rft.place=London%20%253B%20Sterling%2C%20VA&amp;rft.issn=&amp;rft.eissn=&amp;rft.isbn=185383789X&amp;rft.sici=&amp;rft.coden=&amp;rft_id=info:doi/&amp;rft.object_id=&amp;rft.primo=dedupmrg38714743&amp;rft.eisbn=&amp;rft_dat=&lt;nyu_aleph&gt;000782964&lt;/nyu_aleph&gt;&lt;grp_id&gt;41605070&lt;/grp_id&gt;&lt;oa&gt;&lt;/oa&gt;&amp;rft_id=info:oai/&amp;req.language=]]&gt;&lt;/sear:openurl&gt;&lt;sear:backlink&gt;http://aleph.library.nyu.edu/F?func=direct&amp;amp;local_base=PRIMOCOMMON&amp;amp;doc_number=003175055&lt;/sear:backlink&gt;&lt;sear:backlink&gt;http://aleph.library.nyu.edu/F?func=direct&amp;amp;local_base=PRIMOCOMMON&amp;amp;doc_number=000782964&lt;/sear:backlink&gt;&lt;sear:linktorsrc&gt;http://site.ebrary.com/lib/newschool/Doc?id=10128868&lt;/sear:linktorsrc&gt;&lt;sear:linktorsrc&gt;https://ezproxy.library.nyu.edu/login?url=http://site.ebrary.com/lib/nyulibrary/Doc?id=10128868&lt;/sear:linktorsrc&gt;&lt;sear:thumbnail&gt;http://images.amazon.com/images/P/185383789X.01._SSTHUM_.jpg&lt;/sear:thumbnail&gt;&lt;sear:linktotoc&gt;http://www.amazon.com/gp/reader/185383789X&lt;/sear:linktotoc&gt;&lt;sear:openurlfulltext&gt;&lt;![CDATA[https://getit.library.nyu.edu/resolve?&amp;ctx_ver=Z39.88-2004&amp;sfx.ignore_date_threshold=1&amp;ctx_enc=info:ofi/enc:UTF-8&amp;ctx_tim=2014-08-25T14%3A10%3A00IST&amp;url_ver=Z39.88-2004&amp;url_ctx_fmt=infofi/fmt:kev:mtx:ctx&amp;rfr_id=info:sid/primo.exlibrisgroup.com:primo-dedupmrg38714743&amp;rft_val_fmt=info:ofi/fmt:kev:mtx:book&amp;rft.genre=book&amp;rft.jtitle=&amp;rft.btitle=Digital%20futures%20living%20in%20a%20dot-com%20world&amp;rft.aulast=Wilsdon&amp;rft.aufirst=James%2C&amp;rft.auinit=&amp;rft.auinit1=&amp;rft.auinitm=&amp;rft.ausuffix=&amp;rft.au=&amp;rft.aucorp=&amp;rft.volume=&amp;rft.issue=&amp;rft.part=&amp;rft.quarter=&amp;rft.ssn=&amp;rft.spage=&amp;rft.epage=&amp;rft.pages=&amp;rft.artnum=&amp;rft.pub=Earthscan%20Publications&amp;rft.place=London%20%253B%20Sterling%2C%20VA&amp;rft.issn=&amp;rft.eissn=&amp;rft.isbn=185383789X&amp;rft.sici=&amp;rft.coden=&amp;rft_id=info:doi/&amp;rft.object_id=&amp;svc_val_fmt=info:ofi/fmt:kev:mtx:sch_svc&amp;svc.fulltext=yes&amp;rft.eisbn=&amp;rft_dat=&lt;nyu_aleph&gt;003175055&lt;/nyu_aleph&gt;&lt;grp_id&gt;41605070&lt;/grp_id&gt;&lt;oa&gt;&lt;/oa&gt;&amp;rft_id=info:oai/&amp;req.language=]]&gt;&lt;/sear:openurlfulltext&gt;&lt;sear:openurlfulltext&gt;&lt;![CDATA[https://getit.library.nyu.edu/resolve?&amp;ctx_ver=Z39.88-2004&amp;sfx.ignore_date_threshold=1&amp;ctx_enc=info:ofi/enc:UTF-8&amp;ctx_tim=2014-08-25T14%3A10%3A00IST&amp;url_ver=Z39.88-2004&amp;url_ctx_fmt=infofi/fmt:kev:mtx:ctx&amp;rfr_id=info:sid/primo.exlibrisgroup.com:primo-dedupmrg38714743&amp;rft_val_fmt=info:ofi/fmt:kev:mtx:book&amp;rft.genre=book&amp;rft.jtitle=&amp;rft.btitle=Digital%20futures%20living%20in%20a%20dot-com%20world&amp;rft.aulast=Wilsdon&amp;rft.aufirst=James%2C&amp;rft.auinit=&amp;rft.auinit1=&amp;rft.auinitm=&amp;rft.ausuffix=&amp;rft.au=&amp;rft.aucorp=&amp;rft.volume=&amp;rft.issue=&amp;rft.part=&amp;rft.quarter=&amp;rft.ssn=&amp;rft.spage=&amp;rft.epage=&amp;rft.pages=&amp;rft.artnum=&amp;rft.pub=Earthscan%20Publications&amp;rft.place=London%20%253B%20Sterling%2C%20VA&amp;rft.issn=&amp;rft.eissn=&amp;rft.isbn=185383789X&amp;rft.sici=&amp;rft.coden=&amp;rft_id=info:doi/&amp;rft.object_id=&amp;svc_val_fmt=info:ofi/fmt:kev:mtx:sch_svc&amp;svc.fulltext=yes&amp;rft.eisbn=&amp;rft_dat=&lt;nyu_aleph&gt;000782964&lt;/nyu_aleph&gt;&lt;grp_id&gt;41605070&lt;/grp_id&gt;&lt;oa&gt;&lt;/oa&gt;&amp;rft_id=info:oai/&amp;req.language=]]&gt;&lt;/sear:openurlfulltext&gt;&lt;sear:linktoholdings&gt;http://aleph.library.nyu.edu/F?func=item-global&amp;amp;doc_library=LIB01&amp;amp;local_base=PRIMOCOMMON&amp;amp;doc_number=003175055&lt;/sear:linktoholdings&gt;&lt;sear:linktoholdings&gt;http://aleph.library.nyu.edu/F?func=item-global&amp;amp;doc_library=LIB01&amp;amp;local_base=PRIMOCOMMON&amp;amp;doc_number=000782964&lt;/sear:linktoholdings&gt;&lt;sear:linktoreview&gt;https://library.nyu.edu/persistent/lcn/dedupmrg38714743?institution=NYU&amp;amp;persistent&lt;/sear:linktoreview&gt;&lt;sear:linktouc&gt;http://www.amazon.com/gp/product/185383789X&lt;/sear:linktouc&gt;&lt;sear:linktouc&gt;http://www.worldcat.org/search?q=isbn%3A185383789X&lt;/sear:linktouc&gt;&lt;/sear:LINKS&gt;&lt;/sear:DOC&gt;&lt;/sear:DOCSET&gt;&lt;/sear:RESULT&gt;&lt;sear:searchToken&gt;0&lt;/sear:searchToken&gt;&lt;/sear:JAGROOT&gt;&lt;/sear:SEGMENTS&gt;</searchBriefReturn></ns1:searchBriefResponse></soapenv:Body></soapenv:Envelope>"
+    http_version: 
+  recorded_at: Mon, 25 Aug 2014 18:09:59 GMT
+recorded_with: VCR 2.4.0
