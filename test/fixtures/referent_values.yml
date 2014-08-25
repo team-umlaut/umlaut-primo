@@ -126,3 +126,26 @@ russkaia_pochta_with_no_title_3:
   metadata: true
   private_data: false
 
+digital_futures_living_in_a_dot_com_world_1:
+  referent: digital_futures_living_in_a_dot_com_world
+  key_name: "format"
+  value: "book"
+  normalized_value: "book"
+  metadata: false
+  private_data: false
+
+digital_futures_living_in_a_dot_com_world_2:
+  referent: digital_futures_living_in_a_dot_com_world
+  key_name: "genre"
+  value: "book"
+  normalized_value: "book"
+  metadata: true
+  private_data: false
+
+digital_futures_living_in_a_dot_com_world_3:
+  referent: digital_futures_living_in_a_dot_com_world
+  key_name: "isbn"
+  value: "185383789X"
+  normalized_value: "185383789X"
+  metadata: true
+  private_data: false
