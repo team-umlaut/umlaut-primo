@@ -5,7 +5,7 @@ source "https://rubygems.org"
 # development dependencies will be added by default to the :development group.
 gemspec
 
-gem "umlaut", git: "https://github.com/team-umlaut/umlaut.git"
+gem "umlaut", github: "team-umlaut/umlaut"
 
 # Add coveralls for testing.
-gem "coveralls", "~> 0.6.0", :require => false, :group => :test
+gem "coveralls", "~> 0.7.0", :require => false, :group => :test

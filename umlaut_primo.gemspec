@@ -21,10 +21,10 @@ Gem::Specification.new do |s|
   s.add_dependency "exlibris-primo", ">= 1.0.8"
 
   # Dummy app dependencies
-  s.add_development_dependency "rake", "~> 10.0.3"
-  s.add_development_dependency "jquery-rails", "~> 2.2.1"
+  s.add_development_dependency "rake", "~> 10.3.0"
+  s.add_development_dependency "jquery-rails", "~> 3.1.0"
   s.add_development_dependency "mysql2", "~> 0.3.11"
-  s.add_development_dependency "vcr", "~> 2.4.0"
-  s.add_development_dependency "webmock", "~> 1.9.0"
-  s.add_development_dependency "pry", "~> 0.9.12.2"
+  s.add_development_dependency "vcr", "~> 2.9.0"
+  s.add_development_dependency "webmock", "~> 1.20.0"
+  s.add_development_dependency "pry", "~> 0.10.0"
 end
