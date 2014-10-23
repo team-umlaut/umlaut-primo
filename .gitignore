@@ -18,3 +18,5 @@ test/dummy/log
 _yardoc
 doc/
 Gemfile.lock
+
+.ruby-version
