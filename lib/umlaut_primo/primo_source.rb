@@ -2,13 +2,13 @@
 # PrimoSource is a PrimoService that converts primo_source service types into Primo source holdings.
 # This mechanism allows linking to original data sources and their holdings information
 # based on the given Primo sources and can be implemented per source.
-# 
+#
 # PrimoSources are not necessary to use the Primo service andthey require programming.
 # They do, however, allow further customization and functionality.
-# 
+#
 # == Prerequisites
 # First, the PrimoService must be configured with the primo_source service type instead of holding.
-# 
+#
 #   Primo: # Name of your choice
 #     type: PrimoService
 #     ...
@@ -16,7 +16,7 @@
 #       - primo_source
 #       - holding_search
 #       ...
-# 
+#
 # ==Available Parameters
 # Several configurations parameters are available to be set in config/umlaut_services.yml.
 #   PrimoSource: # Name of your choice
@@ -28,14 +28,14 @@
 #     source_attributes: # Optional.
 #       - request_link_supports_ajax_call
 #       - requestability
-# 
+#
 # base_url:: _required_ host and port of Primo server for Primo display deep link
 # vid:: _required_ view id for Primo display deep link
 # institution:: _required_ institution id for Primo display deep link
 # source_attributes::  _optional_ Array of Holding attribute readers to persist to
-#   holding service_data; can be used to save custom source implementation attributes 
+#   holding service_data; can be used to save custom source implementation attributes
 #   for display by a custom holding partial
-# 
+#
 class PrimoSource < PrimoService
 
   # Overwrites PrimoService#new.
@@ -50,8 +50,8 @@ class PrimoSource < PrimoService
     primo_sources = request.get_service_type('primo_source', {:refresh => true})
     sources = [] # for de-duplicating holdings from catalog.
     primo_sources.each do |primo_source|
-      # Calls PrimoService#to_primo_source.
-      source = primo_source.view_data
+      # Call PrimoService#to_primo_source with the ServiceResponse
+      source = primo_source.service.to_primo_source(primo_source)
       # There are some cases where source records may need to be de-duplicated against existing records
       # Check if we've already seen this record.
       next if sources.include?(source)

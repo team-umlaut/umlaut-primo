@@ -4,7 +4,7 @@ Coveralls.wear!
 ENV["RAILS_ENV"] = "test"
 require File.expand_path("../dummy/config/environment.rb",  __FILE__)
 require "rails/test_help"
-ActiveSupport::TestCase.fixture_path = File.expand_path("../fixtures", __FILE__) 
+ActiveSupport::TestCase.fixture_path = File.expand_path("../fixtures", __FILE__)
 Rails.backtrace_cleaner.remove_silencers!
 # Complete stack trace with deprecation warnings from rails
 ActiveSupport::Deprecation.debug = true
@@ -26,3 +26,6 @@ VCR.configure do |c|
   c.filter_sensitive_data("primo.library.edu") { "bobcat.library.nyu.edu" }
   c.filter_sensitive_data("LIB01") { "NYU01" }
 end
+
+# Use pry for debugging
+require 'pry'
